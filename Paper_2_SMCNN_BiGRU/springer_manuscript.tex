@@ -534,7 +534,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_gamma.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_gamma.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_gamma.png}
-\caption{Spatial Modulation Heatmaps ($\gamma$) for all datasets.}
+\caption{Spatial Modulation Heatmaps ($\gamma$) for (a) Indian Pines, (b) PaviaU, and (c) KSC datasets. The heatmaps visualize the spatial scaling parameters learned by the FiLM layer, highlighting region-specific feature emphasis.}
 \label{fig:gamma_all}
 \end{figure*}
 
@@ -542,7 +542,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_beta.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_beta.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_beta.png}
-\caption{Spatial Modulation Heatmaps ($\beta$) for all datasets.}
+\caption{Spatial Modulation Heatmaps ($\beta$) for (a) Indian Pines, (b) PaviaU, and (c) KSC datasets. The heatmaps visualize the spatial shifting parameters learned by the FiLM layer, providing fine-grained contrast adjustment.}
 \label{fig:beta_all}
 \end{figure*}
 
@@ -551,7 +551,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_KSC.png}
-\caption{Confusion Matrices for all datasets. Strong diagonal dominance visually aligns with the reported high accuracies.}
+\caption{Confusion Matrices for (a) Indian Pines, (b) PaviaU, and (c) KSC datasets. Strong diagonal dominance visually aligns with the reported high accuracies.}
 \label{fig:conf_all}
 \end{figure*}
 
@@ -559,27 +559,12 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_IndianPines.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_PaviaU.png} \hfill \includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_KSC.png}
-\caption{Full Classification Maps for all datasets. Sharp boundaries suggest effective AFDKF spatial edge preservation.}
+\caption{Full Classification Maps for (a) Indian Pines, (b) PaviaU, and (c) KSC datasets. Sharp boundaries suggest effective AFDKF spatial edge preservation.}
 \label{fig:class_all}
 \end{figure*}
 
 
-\begin{table}[htbp]
-\centering
-\caption{Noise Robustness Assessment (Indian Pines \& PaviaU)}
-\label{tab:robustness}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Dataset} & \textbf{Model} & \textbf{Clean OA (\%)} & \textbf{20dB SNR OA (\%)} & \textbf{10dB SNR OA (\%)} \\
-\midrule
-\multirow{2}{*}{Indian Pines} & Raw 2D-CNN & 86.42 & 78.15 & 68.40 \\
-& \textbf{SMCNN-MLP} & \textbf{97.05} & \textbf{95.80} & \textbf{92.50} \\
-\midrule
-\multirow{2}{*}{PaviaU} & Raw 2D-CNN & 92.15 & 85.30 & 76.10 \\
-& \textbf{SMCNN-MLP} & \textbf{98.50} & \textbf{97.10} & \textbf{94.85} \\
-\bottomrule
-\end{tabular}
-\end{table}
+
 
 \subsection{Noise Robustness Validation}
 To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we evaluated the SMCNN-MLP against varying degrees of artificially injected Gaussian noise on the Indian Pines dataset.
