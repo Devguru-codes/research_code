@@ -115,7 +115,7 @@ We bridge the gap between heavy deep learning and advanced signal processing. Ou
 
 
 \subsection{Theoretical Justification for Lightweight Modulation}\label{sec:theoretical}
-The core premise of our framework is that complex sequence models can be replaced by lightweight spatial modulation if the input features are highly refined. Mathematically, the AFDKF minimizes the noise covariance matrix of the raw HSI cube, mitigating sensor-induced noise variance from sensor artifacts. Subsequently, the PLCWT decomposes these signatures into orthogonal multi-scale frequencies, enhancing feature separability. Specifically, PLCWT expands the 30 PCA components into 60 frequency subbands utilizing the Complex Morlet mother wavelet due to its optimal joint time-frequency resolution. The transform is computed across 60 continuous scales, logarithmically spaced to capture high-frequency absorption features. The mapping to polar coordinates stabilizes translation-variance with an angular sampling interval of $\pi/18$. Empirically observed, transforming the data into a highly separable, low-noise frequency manifold means the deep learning architecture is no longer burdened with implicit denoising or feature extraction. Consequently, a simple affine transformation (scaling and shifting via MLP-generated FiLM parameters) becomes empirically effective to classify the data, rivaling recurrent spectral conditioning under low-data scenarios within this specific modulation framework.
+The core premise of our framework is that BiGRU-based sequential modulation can be replaced by lightweight spatial modulation if the input features are highly refined. Mathematically, the AFDKF minimizes the noise covariance matrix of the raw HSI cube, mitigating sensor-induced noise variance from sensor artifacts. Subsequently, the PLCWT decomposes these signatures into orthogonal multi-scale frequencies, enhancing feature separability. Specifically, PLCWT expands the 30 PCA components into 60 frequency subbands utilizing the Complex Morlet mother wavelet due to its optimal joint time-frequency resolution. The transform is computed across 60 continuous scales, logarithmically spaced to capture high-frequency absorption features. The mapping to polar coordinates stabilizes translation-variance with an angular sampling interval of $\pi/18$. Empirically observed, transforming the data into a highly separable, low-noise frequency manifold means the deep learning architecture is no longer burdened with implicit denoising or feature extraction. Consequently, a simple affine transformation (scaling and shifting via MLP-generated FiLM parameters) becomes empirically effective to classify the data, rivaling recurrent spectral conditioning under low-data scenarios within this specific modulation framework.
 
 \subsection{Phase 1: Adaptive Fast Desensitized Kalman Filter (AFDKF) Denoising}
 Raw hyperspectral images are highly corrupted by sensor noise and atmospheric scattering. Traditional spatial denoising blurs the boundaries of small classes. The AFDKF applies fractional-order calculus to recursively estimate the underlying true spectral signature while mathematically bounding the perturbation envelope. Unlike standard formulations, we explicitly model the sensitivity matrix $S_k = \frac{\partial \hat{x}_k}{\partial \theta}$, representing the state derivative with respect to noise parameters $\theta$. The standard Kalman gain is heavily regularized via a robust optimization formulation:
@@ -204,9 +204,9 @@ To rigorously test our "Green AI" hypothesis, we performed a controlled ablation
 
 As seen in Table \ref{tab:sota_results}, the SMCNN-BiGRU frequently achieves the absolute highest numerical accuracy (e.g., 99.91\% on Salinas, 98.65\% on Botswana). This is expected, as recurrent models naturally excel at modeling bidirectional spectral sequences.
 
-However, the SMCNN-MLP matched or exceeded the BiGRU in key datasets like WHU-Hi (99.56\% vs 99.37\%). Statistical testing (McNemar's test) on the misclassification rates revealed no significant difference between the two variants across the majority of datasets. While HybridSN achieves a higher peak accuracy on the highly mixed KSC dataset (92.12\% vs. 89.32\%), the SMCNN-MLP offers a strictly Pareto-optimal efficiency-accuracy tradeoff. We explicitly concede that extremely deep architectures like HybridSN maintain superiority on severely mixed, low-resolution datasets like KSC, and SMCNN-MLP is not positioned as the absolute state-of-the-art in raw accuracy, but rather in computational economy. Therefore, the proposed model is strictly marketed as an efficiency-focused classifier rather than a universal accuracy-maximizing architecture. While HybridSN achieves a higher peak accuracy on the highly mixed KSC dataset (96.62\% vs. 89.32\%), the SMCNN-MLP offers a significantly superior efficiency-performance tradeoff, consuming an order of magnitude less energy. 
+However, the SMCNN-MLP matched or exceeded the BiGRU in key datasets like WHU-Hi (99.56\% vs 99.37\%). Statistical testing (McNemar's test) on the misclassification rates revealed no significant difference between the two variants across the majority of datasets. While HybridSN achieves a higher peak accuracy on the highly mixed KSC dataset (92.12\% vs. 89.32\%), the SMCNN-MLP offers a strictly Pareto-optimal efficiency-accuracy tradeoff. We explicitly concede that extremely deep architectures like HybridSN maintain superiority on severely mixed, low-resolution datasets like KSC, and SMCNN-MLP is not positioned as the absolute state-of-the-art in raw accuracy, but rather in computational economy. Therefore, the proposed model is strictly marketed as an efficiency-focused classifier rather than a universal accuracy-maximizing architecture. Crucially, the SMCNN-MLP offers a significantly superior efficiency-performance tradeoff, consuming an order of magnitude less energy. 
 
-Because the MLP variant provides statistically comparable performance while utilizing only \textbf{189,933 parameters} (compared to BiGRU's 321,693) and achieving \textbf{1.26ms} inference time, it strongly supports our "Green AI" hypothesis: \textit{When paired with robust AFDKF and PLCWT preprocessing, lightweight MLP modulation can match the performance of complex sequence modeling for spatial modulation.} (See Fig. \ref{fig:gamma_all} for the visualization of FiLM vectors).
+Because the MLP variant provides statistically comparable performance while utilizing only \textbf{189,933 parameters} (compared to BiGRU's 321,693) and achieving \textbf{1.26ms} inference time, it strongly supports our "Green AI" hypothesis: \textit{When paired with robust AFDKF and PLCWT preprocessing, lightweight MLP modulation can match the performance of BiGRU-based sequential modulation for spatial modulation.} (See Fig. \ref{fig:gamma_all} for the visualization of FiLM vectors).
 
 
 
@@ -216,7 +216,7 @@ Because the MLP variant provides statistically comparable performance while util
 
 
 \section{Preprocessing Ablation Study}\label{sec:preprocessing_ablation}
-To empirically validate the necessity of our chosen preprocessing pipeline, we conducted an ablation study tracking the Overall Accuracy (OA) progression from a Raw CNN baseline to our full framework. As shown in Table \ref{tab:ablation_preproc}, the performance improvements are highly distributed. The accuracy gains are not solely attributable to preprocessing, nor solely to FiLM. Instead, robust preprocessing and lightweight modulation interact synergistically to achieve high accuracy, demonstrating that complex sequence models are not strictly necessary within this combined framework.
+To empirically validate the necessity of our chosen preprocessing pipeline, we conducted an ablation study tracking the Overall Accuracy (OA) progression from a Raw CNN baseline to our full framework. As shown in Table \ref{tab:ablation_preproc}, the performance improvements are highly distributed. The accuracy gains are not solely attributable to preprocessing, nor solely to FiLM. Instead, robust preprocessing and lightweight modulation interact synergistically to achieve high accuracy, demonstrating that BiGRU-based sequential modulation are not strictly necessary within this combined framework.
 
 \begin{table*}[htbp]
 \centering
@@ -238,7 +238,7 @@ Raw CNN & $96.80 \pm 0.42$ & $91.13 \pm 1.05$ & $99.75 \pm 0.08$ & $99.45 \pm 0.
 
 
 \subsection{Statistical Significance of MLP vs. BiGRU Modulation}\label{sec:significance}
-To rigorously assess the hypothesis that lightweight MLP modulation performs similarly to complex BiGRU sequence models within our framework, we conducted a McNemar's statistical test between the predictions of SMCNN-MLP and SMCNN-BiGRU.
+To rigorously assess the hypothesis that lightweight MLP modulation performs similarly to BiGRU-based sequential modulation within our framework, we conducted a McNemar's statistical test between the predictions of SMCNN-MLP and SMCNN-BiGRU.
 
 \begin{table*}[!htbp]
 \centering
@@ -258,7 +258,7 @@ WHU-Hi & 30 & 24 & 0.67 & 0.413 & No Diff ($p > 0.05$) \\
 \end{tabular}
 \end{table*}
 
-As shown in Table \ref{tab:mcnemar}, a p-value greater than 0.05 indicates no statistically significant difference in predictive power. These results confirm that the specific sequence modeling advantages of BiGRU may be unnecessary within the SMCNN framework when optimal spatial-spectral preprocessing (AFDKF+PLCWT) is applied.
+As shown in Table \ref{tab:mcnemar}, a p-value greater than 0.05 indicates no statistically significant difference in predictive power. These results confirm that the additional sequential inductive bias introduced by BiGRU may be unnecessary within the SMCNN framework when optimal spatial-spectral preprocessing (AFDKF+PLCWT) is applied.
 
 \section{Comparative Benchmark Evaluation}\label{sec:sota_results}
 
@@ -333,7 +333,7 @@ Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (O
 \centering
 \includegraphics[width=0.40\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_tsne_plot.png}
 \includegraphics[width=0.40\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_tsne_plot.png}
-\caption{Feature Separability (t-SNE) for Indian Pines (left) and Pavia University (right). After PLCWT and SMCNN processing, the highly overlapping hyperspectral pixels are shows strong class separability into distinct, separated groups with tight boundaries.}
+\caption{Feature Separability (t-SNE) for Indian Pines (left) and Pavia University (right). After PLCWT and SMCNN processing, the highly overlapping hyperspectral pixels show strong class separability into distinct, separated groups with tight boundaries.}
 \label{fig:tsne}
 \end{figure*}
 
@@ -579,7 +579,7 @@ To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we 
 
 % Table X moved to appear with Figure 6 on float page 12
 
-Table \ref{tab:robustness} demonstrates that while a standard 2D-CNN rapidly degrades under extreme noise conditions (68.40\% at 10dB), the SMCNN-MLP maintains a highly robust 92.50\% OA on Indian Pines, and 94.85\% on PaviaU, empirically proving the denoising efficacy of the AFDKF.
+Table \ref{tab:robustness} demonstrates that while a standard 2D-CNN rapidly degrades under extreme noise conditions (68.40\% at 10dB), the SMCNN-MLP maintains a highly robust 92.50\% OA on Indian Pines, and 94.85\% on PaviaU, empirically supporting the robustness benefits of the proposed preprocessing pipeline.
 
 \section{Limitations}
 Audebert et al. (2019) similarly demonstrates that Salinas frequently reaches $\sim$99\% OA even under constrained scenarios, aligning with our observations. While the SMCNN-MLP achieves an excellent efficiency-accuracy trade-off, we explicitly acknowledge three limitations:
@@ -588,10 +588,10 @@ Audebert et al. (2019) similarly demonstrates that Salinas frequently reaches $\
 3) Edge deployment latency and actual watt-hour power draw on physical hardware (e.g., NVIDIA Jetson) remain untested.
 
 
-While our framework establishes a strong efficiency benchmark against HybridSN and SSFTT, future work must explicitly evaluate lightweight MLP conditioning against emerging large-scale paradigms such as SpectralGPT and MambaHSI.
+While our framework establishes a strong efficiency benchmark against HybridSN and SSFTT, future work must explicitly evaluate lightweight MLP conditioning against emerging large-scale paradigms such as SpectralGPT and MambaHSI. Furthermore, future work should evaluate whether the same conclusions extend to Transformer-based or State Space modulation mechanisms.
 
 \section{Conclusion \& Future Work}\label{sec:conclusion}
-This paper proposes a Green-AI framework for hyperspectral image classification, demonstrating that within the SMCNN framework, BiGRU does not consistently justify its computational overhead compared to lightweight modulation. By robustly denoising signals via an Adaptive Fast Desensitized Kalman Filter and extracting frequency patterns with a Polar-Logarithmic Continuous Wavelet Transform, we highlighted the critical role of data preparation over architectural complexity.
+We investigate whether robust preprocessing combined with lightweight FiLM modulation can challenge the necessity of increasingly complex HSI architectures, demonstrating that within the SMCNN framework, BiGRU does not consistently justify its computational overhead compared to lightweight modulation. By robustly denoising signals via an Adaptive Fast Desensitized Kalman Filter and extracting frequency patterns with a Polar-Logarithmic Continuous Wavelet Transform, we highlighted the critical role of data preparation over architectural complexity.
 
 Our proposed framework, SMCNN, effectively utilizes Feature-wise Linear Modulation (FiLM) parameters to scale and shift standard 2D convolutions. Rigorous ablation studies revealed that our lightweight MLP variant matched the performance of highly complex BiGRU recurrent networks, establishing that lightweight modulation achieves a highly competitive accuracy-efficiency tradeoff. Ultimately, we present a lightweight FiLM-modulated CNN for HSI classification, preceded by Kalman-wavelet preprocessing, accompanied by a rigorous study showing that simple MLP modulation performs similarly to BiGRU modulation under strict training constraints, maximizing the accuracy-to-compute ratio. While the individual mathematical components (Kalman filters, wavelets, FiLM) are established techniques, their novel systems integration into an ultra-efficient pipeline demonstrates an alternative paradigm emphasizing preprocessing-driven efficiency. This establishes the SMCNN-MLP as a highly efficient, edge-deployment candidate for real-world UAV and satellite platforms. 
 
