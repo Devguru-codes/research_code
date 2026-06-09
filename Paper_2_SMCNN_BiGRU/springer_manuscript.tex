@@ -342,11 +342,11 @@ Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (O
 
 As detailed in Table \ref{tab:efficiency}, evaluated on the KSC dataset reference with 60 bands after PLCWT, energy consumption (mJ) was theoretically estimated during inference using the \textit{PyJoules} tracking framework running on a single NVIDIA RTX 3090. Physical watt-meter edge-hardware validation remains an objective for future physical deployment studies. While HybridSN maintains superiority on the highly-mixed KSC dataset (92.12\% vs 89.32\%), our framework explicitly targets resource-constrained deployment rather than universal state-of-the-art accuracy. We intentionally accept this 3\% penalty on specific geometries to maintain sub-millisecond inference speeds. Although our \textit{PyJoules} measurements establish a theoretical Green AI baseline, physical edge inference validation (e.g., on an NVIDIA Jetson Nano) remains a critical objective for future work. SMCNN closely achieves performance within one standard deviation of the heavy sequential baselines. SMCNN-MLP achieves sub-millisecond inference and requires only 9.8 MB of GPU memory.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \centering
 \caption{Computational Efficiency Profiling (KSC Reference)}
 \label{tab:efficiency}
-\resizebox{\columnwidth}{!}{%
+\footnotesize
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Model} & \textbf{Params} & \textbf{Params (M)} & \textbf{FLOPs} & \textbf{Infer (ms)} & \textbf{GPU Mem (MB)} & \textbf{Energy (mJ)} \\
@@ -357,9 +357,8 @@ HybridSN & 1,127,093 & 1.127 & 281.32 M & 1.39 & 26.6 & 1.29 \\
 \textbf{SMCNN-MLP} & \textbf{189,933} & \textbf{0.190} & \textbf{22.21 M} & \textbf{1.26} & \textbf{9.8} & \textbf{0.10} \\
 \textbf{SMCNN-BiGRU} & 321,693 & 0.322 & 30.73 M & 1.72 & 27.4 & 0.14 \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{tabular}
+\end{table*}
 
 %%=============================================================%%
 %% 7. Hyperparameter Sensitivity Analysis
