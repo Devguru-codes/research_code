@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, positioning}
 \usepackage{placeins}
+\usepackage{balance}
 \usepackage{multirow}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{amsthm}
@@ -235,6 +236,7 @@ Raw CNN & $96.80 \pm 0.42$ & $91.13 \pm 1.05$ & $99.75 \pm 0.08$ & $99.45 \pm 0.
 \end{table*}
 
 
+\FloatBarrier
 \subsection{Statistical Significance of MLP vs. BiGRU Modulation}\label{sec:significance}
 To rigorously assess the hypothesis that lightweight MLP modulation performs similarly to complex BiGRU sequence models within our framework, we conducted a McNemar's statistical test between the predictions of SMCNN-MLP and SMCNN-BiGRU.
 
@@ -581,6 +583,7 @@ Future work will focus on deploying the SMCNN-MLP onto physical hardware, such a
 
 
 \FloatBarrier
+\balance
 \begin{thebibliography}{99}
 \bibitem{yan2021} Li, R., Zheng, S., Duan, C., Yang, Y., \& Wang, X. (2021). Classification of hyperspectral image based on double-branch dual-attention mechanism network. Remote Sensing, 12(4), 582.
 \bibitem{gunduz2024} Kang, X., Li, S., \& Benediktsson, J. A. (2014). Spectral-spatial hyperspectral image classification with edge-preserving filtering. IEEE Transactions on Geoscience and Remote Sensing, 52(5), 2666-2677.
