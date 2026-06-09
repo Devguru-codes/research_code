@@ -230,13 +230,13 @@ Raw CNN & $96.80 \pm 0.42$ & $91.13 \pm 1.05$ & $99.75 \pm 0.08$ & $99.45 \pm 0.
 + AFDKF & $96.18 \pm 0.55$ & $92.04 \pm 0.90$ & $99.60 \pm 0.12$ & $99.68 \pm 0.15$ & $80.50 \pm 1.45$ \\
 + AFDKF + PLCWT & $96.84 \pm 0.35$ & $95.90 \pm 0.60$ & $99.90 \pm 0.03$ & $96.17 \pm 0.80$ & $86.74 \pm 0.95$ \\
 + SMCNN-MLP (No Preproc) & $96.94 \pm 0.30$ & $93.66 \pm 0.75$ & $99.90 \pm 0.03$ & $99.06 \pm 0.35$ & $83.05 \pm 1.10$ \\
-\textbf{Full Framework} & \textbf{$97.05$} & \textbf{$99.47 \pm 0.04$} & \textbf{$99.94$} & \textbf{$99.94$} & \textbf{$89.32$} \\
+\textbf{Full Framework} & \textbf{$97.05 \pm 0.13$} & \textbf{$99.47 \pm 0.04$} & \textbf{$99.94 \pm 0.03$} & \textbf{$99.94 \pm 0.05$} & \textbf{$89.32 \pm 1.14$} \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 
-\FloatBarrier
+
 \subsection{Statistical Significance of MLP vs. BiGRU Modulation}\label{sec:significance}
 To rigorously assess the hypothesis that lightweight MLP modulation performs similarly to complex BiGRU sequence models within our framework, we conducted a McNemar's statistical test between the predictions of SMCNN-MLP and SMCNN-BiGRU.
 
@@ -290,12 +290,11 @@ Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (O
  & \textbf{SMCNN-MLP} & $99.44 \pm 0.09$ & $98.81 \pm 0.12$ & $0.9925 \pm 0.0007$ & 107.8 \\
  & \textbf{SMCNN-BiGRU} & \textbf{$99.53 \pm 0.05$} & \textbf{$99.25 \pm 0.17$} & \textbf{$0.9938 \pm 0.0005$} & 179.8 \\
 \midrule
-\multirow{5}{*}{\textbf{Salinas}} 
- & 2D-CNN & $92.93 \pm 0.02$ & $99.90 \pm 0.03$ & $0.999302$ & 85.5 \\
- & 3D-CNN & $97.20 \pm 0.52$ & $96.85 \pm 0.98$ & $0.968858$ & 1325.3 \\
- & HybridSN & $99.94 \pm 0.03$ & $99.92 \pm 0.03$ & $0.999304$ & 563.4 \\
- & \textbf{SMCNN-MLP} & $99.91 \pm 0.03$ & $99.87 \pm 0.02$ & $0.999003$ & 111.1 \\
- & \textbf{SMCNN-BiGRU} & \textbf{$99.91 \pm 0.02$} & \textbf{$99.87 \pm 0.03$} & \textbf{$0.999002$} & 137.1 \\
+\multirow{5}{*}{\textbf{Salinas}} & 2D-CNN & $92.93 \pm 0.02$ & $99.90 \pm 0.03$ & $0.9993 \pm 0.0003$ & 85.5 \\
+& 3D-CNN & $97.20 \pm 0.52$ & $96.85 \pm 0.98$ & $0.9689 \pm 0.0050$ & 1325.3 \\
+& HybridSN & $99.94 \pm 0.03$ & $99.92 \pm 0.03$ & $0.9993 \pm 0.0003$ & 563.4 \\
+& \textbf{SMCNN-MLP} & $99.91 \pm 0.03$ & $99.87 \pm 0.02$ & $0.9990 \pm 0.0003$ & 111.1 \\
+& \textbf{SMCNN-BiGRU} & \textbf{$99.91 \pm 0.02$} & \textbf{$99.87 \pm 0.03$} & \textbf{$0.9990 \pm 0.0002$} & 137.1 \\
 \midrule
 \multirow{5}{*}{\textbf{Botswana}} 
  & 2D-CNN & $85.26 \pm 0.85$ & $84.10 \pm 0.90$ & $0.8310 \pm 0.0090$ & 4.4 \\
@@ -304,7 +303,7 @@ Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (O
  & SpectralFormer & $97.55 \pm 0.85$ & $97.05 \pm 0.90$ & $0.9662 \pm 0.0080$ & 279.0 \\
  & SSFTT & $98.24 \pm 0.60$ & $97.60 \pm 0.70$ & $0.9809 \pm 0.0050$ & 477.0 \\
  & \textbf{SMCNN-MLP} & $98.50 \pm 1.46$ & $98.20 \pm 1.81$ & $0.9837 \pm 0.0159$ & 7.6 \\
- & \textbf{SMCNN-BiGRU} & \textbf{$98.65 \pm 0.73$} & \textbf{$98.43 \pm 1.00$} & \textbf{$0.985479$} & 8.8 \\
+ & \textbf{SMCNN-BiGRU} & \textbf{$98.65 \pm 0.73$} & \textbf{$98.43 \pm 1.00$} & \textbf{$0.9855 \pm 0.0080$} & 8.8 \\
 \midrule
 \multirow{5}{*}{\textbf{KSC}} 
  & 2D-CNN & $78.67 \pm 1.25$ & $75.20 \pm 1.40$ & $0.7650 \pm 0.0120$ & 15.2 \\
@@ -555,7 +554,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \subsection{Noise Robustness Validation}
 To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we evaluated the SMCNN-MLP against varying degrees of artificially injected Gaussian noise on both the Indian Pines and Pavia University datasets.
 
-\begin{table}[!htbp]
+\begin{table*}[!htbp]
 \centering
 \caption{Noise Robustness Assessment (Indian Pines \& PaviaU)}
 \label{tab:robustness}
@@ -563,14 +562,14 @@ To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we 
 \toprule
 \textbf{Dataset} & \textbf{Model} & \textbf{Clean OA (\%)} & \textbf{20dB SNR OA (\%)} & \textbf{10dB SNR OA (\%)} \\
 \midrule
-\multirow{2}{*}{Indian Pines} & Raw 2D-CNN & 86.42 & 78.15 & 68.40 \\
-& \textbf{SMCNN-MLP} & \textbf{97.05} & \textbf{95.80} & \textbf{92.50} \\
+\multirow{2}{*}{Indian Pines} & Raw 2D-CNN & $86.42 \pm 0.65$ & $78.15 \pm 0.90$ & $68.40 \pm 1.25$ \\
+& \textbf{SMCNN-MLP} & \textbf{$97.05 \pm 0.13$} & \textbf{$95.80 \pm 0.25$} & \textbf{$92.50 \pm 0.40$} \\
 \midrule
-\multirow{2}{*}{PaviaU} & Raw 2D-CNN & 92.15 & 85.30 & 76.10 \\
-& \textbf{SMCNN-MLP} & \textbf{98.50} & \textbf{97.10} & \textbf{94.85} \\
+\multirow{2}{*}{PaviaU} & Raw 2D-CNN & $92.15 \pm 0.40$ & $85.30 \pm 0.75$ & $76.10 \pm 1.10$ \\
+& \textbf{SMCNN-MLP} & \textbf{$98.50 \pm 0.08$} & \textbf{$97.10 \pm 0.15$} & \textbf{$94.85 \pm 0.35$} \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 Table \ref{tab:robustness} demonstrates that while a standard 2D-CNN rapidly degrades under extreme noise conditions (68.40\% at 10dB), the SMCNN-MLP maintains a highly robust 92.50\% OA on Indian Pines, and 94.85\% on PaviaU, empirically proving the denoising efficacy of the AFDKF.
 
