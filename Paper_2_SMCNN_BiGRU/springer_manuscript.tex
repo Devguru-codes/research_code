@@ -69,9 +69,9 @@
 
 Hyperspectral images contain rich spectral-spatial information, making them invaluable for precision agriculture, environmental monitoring, and urban planning. Historically, Convolutional Neural Networks (CNNs), particularly 3D-CNNs, have dominated HSI classification. However, 3D-CNNs treat spectral bands as spatial depth, ignoring the sequential physics of electromagnetic wavelengths, while simultaneously incurring massive computational costs. 
 
-Recent advancements have attempted to solve this by introducing complex attention mechanisms or recurrent models. For instance, Yan et al. \cite{yan2021} introduced Global-Local Channel Attention to recalibrate feature responses, while Gündüz \& Orman \cite{gunduz2024} integrated CNNs with Gated Recurrent Units (GRUs) to model spectral dependencies. Most recently, recurrent models like Mamba have emerged. Liao \& Wang \cite{liao2025} proposed HyperspectralMamba, fusing recurrent Models (SSMs) with CNNs to capture long-range spectral dependencies. While these approaches push state-of-the-art accuracy, they contribute to an unsustainable trend of increasingly heavy models that are impossible to deploy on edge hardware (e.g., drones).
+Recent advancements have attempted to solve this by introducing complex attention mechanisms or recurrent models. For instance, Li et al. \cite{yan2021} introduced dual-attention mechanisms to recalibrate feature responses, while Kang et al. \cite{gunduz2024} explored spatial-spectral edge-preserving filters. Most recently, sequence models like Mamba have emerged. Wang et al. \cite{zhang2024} proposed Spectral-Spatial Mamba, fusing State Space Models (SSMs) with CNNs to capture long-range spectral dependencies. While these approaches push state-of-the-art accuracy, they contribute to an unsustainable trend of increasingly heavy models that are impossible to deploy on edge hardware (e.g., drones).
 
-In a parallel domain, advanced signal processing techniques have shown promise in denoising. Lou et al. \cite{lou2024} introduced an Adaptive Fast Desensitized Kalman Filter (AFDKF) for robust state estimation, and Waseem \& Verma \cite{waseem2025} developed the Polar Linear Canonical Wavelet Transform (PLCWT) for enhanced directional signal representation. 
+In a parallel domain, advanced signal processing techniques have shown promise in denoising. Lou et al. \cite{lou2024} introduced an Adaptive Fast Desensitized Kalman Filter (AFDKF) for robust state estimation, and Xu \& Li \cite{xu2023} explored wavelet-based architectures for enhanced directional signal representation. 
 
 \subsection{Our Contributions}
 We bridge the gap between heavy deep learning and advanced signal processing. Our core argument is an "anti-trend" philosophy: if preprocessing is mathematically robust, the deep learning model can be incredibly simple. 
@@ -594,7 +594,6 @@ Future work will focus on deploying the SMCNN-MLP onto physical hardware, such a
 
 
 \FloatBarrier
-\balance
 \begin{thebibliography}{99}
 \bibitem{yan2021} Li, R., Zheng, S., Duan, C., Yang, Y., \& Wang, X. (2021). Classification of hyperspectral image based on double-branch dual-attention mechanism network. Remote Sensing, 12(4), 582.
 \bibitem{gunduz2024} Kang, X., Li, S., \& Benediktsson, J. A. (2014). Spectral-spatial hyperspectral image classification with edge-preserving filtering. IEEE Transactions on Geoscience and Remote Sensing, 52(5), 2666-2677.
