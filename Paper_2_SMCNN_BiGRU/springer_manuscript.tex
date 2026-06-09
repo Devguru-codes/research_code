@@ -564,10 +564,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \end{figure*}
 
 
-\subsection{Noise Robustness Validation}
-To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we evaluated the SMCNN-MLP against varying degrees of artificially injected Gaussian noise on the Indian Pines dataset.
-
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Noise Robustness Assessment (Indian Pines \& PaviaU)}
 \label{tab:robustness}
@@ -583,6 +580,11 @@ To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we 
 \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Noise Robustness Validation}
+To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we evaluated the SMCNN-MLP against varying degrees of artificially injected Gaussian noise on the Indian Pines dataset.
+
+
 
 Table \ref{tab:robustness} demonstrates that while a standard 2D-CNN rapidly degrades under extreme noise conditions (68.40\% at 10dB), the SMCNN-MLP maintains a highly robust 92.50\% OA, empirically proving the denoising efficacy of the AFDKF.
 
