@@ -38,7 +38,7 @@
 
 \begin{document}
 
-\title[Spatial-Spectral Modulated CNN for HSI Classification]{Spatial-Spectral Modulated CNN (SMCNN) for Hyperspectral Image Classification: A Green AI Approach}
+\title[Challenging the Necessity of Complex HSI Architectures]{Challenging the Necessity of Complex Hyperspectral Architectures via Robust Preprocessing and Lightweight Modulation}
 
 %%=============================================================%%
 %% Authors
@@ -54,7 +54,7 @@
 %% Abstract
 %%==================================%%
 
-\abstract{Hyperspectral Image (HSI) classification models have grown computationally intensive (e.g., 3D-CNNs, Transformers, and Mamba recurrent models), which can be resource-demanding for edge devices like UAVs. This paper explores a "Green AI" alternative pipeline: the Spatially-Modulated Convolutional Neural Network (SMCNN). Rather than relying entirely on complex network architectures, our experiments suggest that robust signal preprocessing can significantly reduce the deep learning burden. We propose a novel integration of an Adaptive Fast Desensitized Kalman Filter (AFDKF) to strictly denoise the raw HSIs, followed by a Polar-Logarithmic Continuous Wavelet Transform (PLCWT) to extract multi-scale frequency features. To process these refined features, we introduce two distinct modulation pathways within the SMCNN framework: SMCNN-BiGRU and SMCNN-MLP. While the BiGRU variant models spectral sequences bidirectionally, our rigorous ablation demonstrates that the ultra-lightweight SMCNN-MLP achieves statistically comparable performance. Evaluated on six diverse datasets, the SMCNN-MLP achieves an exceptional accuracy-efficiency tradeoff (e.g., $>$99.4\% on PaviaU, Salinas, and WHU-Hi) with only 189K parameters---an 83\% reduction compared to standard HybridSN models and nearly half the parameters of the BiGRU variant---proving that robust preprocessing combined with lightweight FiLM modulation maximizes the accuracy-to-compute ratio, a fundamental metric for "Green AI".}
+\abstract{Hyperspectral Image (HSI) classification models have grown computationally intensive (e.g., 3D-CNNs, Transformers, and Mamba recurrent models), which can be resource-demanding for edge devices like UAVs. This paper explores a "Green AI" alternative pipeline: the Spatially-Modulated Convolutional Neural Network (SMCNN). Rather than relying entirely on complex network architectures, our experiments suggest that robust signal preprocessing can significantly reduce the deep learning burden. We propose a novel integration of an Adaptive Fast Desensitized Kalman Filter (AFDKF) to strictly denoise the raw HSIs, followed by a Polar-Logarithmic Continuous Wavelet Transform (PLCWT) to extract multi-scale frequency features. To process these refined features, we introduce two distinct modulation pathways within the SMCNN framework: SMCNN-BiGRU and SMCNN-MLP. While the BiGRU variant models spectral sequences bidirectionally, our rigorous ablation demonstrates that the ultra-lightweight SMCNN-MLP achieves statistically comparable performance. Evaluated on six diverse datasets, the SMCNN-MLP achieves an exceptional accuracy-efficiency tradeoff (e.g., $>$99.4\% on PaviaU, Salinas, and WHU-Hi) with only 189K parameters---an 83\% reduction compared to standard HybridSN models and nearly half the parameters of the BiGRU variant---supporting Green AI deployment by demonstrating that robust preprocessing combined with lightweight FiLM modulation maximizes the accuracy-to-compute ratio.}
 
 \keywords{Hyperspectral image classification, Green AI, Spatial-spectral modulation, Feature-wise Linear Modulation, Wavelet transform, Kalman filter.}
 
@@ -124,7 +124,7 @@ K_k = P_{k|k-1}H^T(HP_{k|k-1}H^T + R_k + \lambda S_k S_k^T)^{-1}
 where $\lambda$ dictates the desensitization penalty, ensuring the filter does not over-fit to high-frequency artifacts while preserving spatial edges.
 
 \subsection{Phase 2: Polar-Logarithmic Continuous Wavelet Transform (PLCWT)}
-To extract discriminative frequency features from the denoised signal $\hat{x}$, we apply the PLCWT. Unlike standard PCA which only extracts linear variance, PLCWT maps the signal into the polar-logarithmic domain, capturing multi-scale frequency responses.
+Rather than proposing PLCWT as a novel contribution, we investigate whether PLCWT-derived frequency representations facilitate efficient modulation. Unlike standard PCA which only extracts linear variance, mapping the signal into the polar-logarithmic domain captures multi-scale frequency responses.
 \begin{small}
 \begin{equation}
 W_{\psi}f(a, b, \theta) = \frac{1}{\sqrt{a}} \int \int f(x,y) \psi^* \left( \frac{R_{-\theta}(x-b_x, y-b_y)}{a} \right) dx dy
@@ -221,7 +221,7 @@ Because the MLP variant provides statistically comparable performance while util
 
 
 \section{Preprocessing Ablation Study}\label{sec:preprocessing_ablation}
-To empirically validate the necessity of our chosen preprocessing pipeline, we conducted an ablation study tracking the Overall Accuracy (OA) progression from a Raw CNN baseline to our full framework. As shown in Table \ref{tab:ablation_preproc}, the AFDKF and PLCWT preprocessing stages interact synergistically with FiLM modulation to achieving high accuracy. This demonstrates why the subsequent SMCNN-MLP can perform so efficiently: the robust preprocessing handles the heavy lifting, allowing lightweight modulation to match the performance of more complex sequence models.
+To empirically validate the necessity of our chosen preprocessing pipeline, we conducted an ablation study tracking the Overall Accuracy (OA) progression from a Raw CNN baseline to our full framework. As shown in Table \ref{tab:ablation_preproc}, the performance improvements are highly distributed. The accuracy gains are not solely attributable to preprocessing, nor solely to FiLM. Instead, robust preprocessing and lightweight modulation interact synergistically to achieve high accuracy, demonstrating that complex sequence models are not strictly necessary within this combined framework.
 
 \begin{table*}[htbp]
 \centering
@@ -250,7 +250,7 @@ To rigorously assess the hypothesis that lightweight MLP modulation performs sim
 \label{tab:mcnemar}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Dataset} & \textbf{Test Statistic ($\chi^2$, {01}$, {10}$)} & \textbf{p-value} & \textbf{Significance} \\
+\textbf{Dataset} & \textbf{Test Statistic ($\chi^2$)} & \textbf{p-value} & \textbf{Significance} \\
 \midrule
 Indian Pines & 1.45 & 0.228 & No Diff ($p > 0.05$) \\
 Pavia U & 0.89 & 0.345 & No Diff ($p > 0.05$) \\
@@ -265,6 +265,8 @@ WHU-Hi & 1.05 & 0.305 & No Diff ($p > 0.05$) \\
 As shown in Table \ref{tab:mcnemar}, a p-value greater than 0.05 indicates no statistically significant difference in predictive power. These results confirm that the specific sequence modeling advantages of BiGRU are unnecessary when optimal spatial-spectral preprocessing (AFDKF+PLCWT) is applied.
 
 \section{Comparative Benchmark Evaluation}\label{sec:sota_results}
+
+To establish a rigorous baseline, we evaluate our proposed framework against a standard 3D-CNN architecture and the highly regarded HybridSN model. To ensure fair comparative baselines across all architectures, the 3D-CNN was implemented using standard $3\times3\times3$ spatial-spectral convolutional kernels with an input patch size of $5\times5$, matching the spatial reception field of our SMCNN framework. All baseline models were trained using an identical randomized 5-fold sampling split, optimized with Adam at an initial learning rate of $0.001$.
 
 Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (OA), Average Accuracy (AA), and Kappa over 5 seeds.
 
@@ -521,8 +523,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Salinas_tsne_plot.png}
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Botswana_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/WHU_Hi_tsne_plot.png}
+\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_tsne_plot.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_tsne_plot.png}
 \caption{Feature Separability (t-SNE) for all datasets. The strong inter-class separability supports the efficacy of the PLCWT and SMCNN processing.}
 \label{fig:tsne_all}
 \end{figure*}
@@ -530,8 +531,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Salinas_modulation_gamma.png}
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Botswana_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/WHU_Hi_modulation_gamma.png}
+\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_gamma.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_gamma.png}
 \caption{Spatial Modulation Heatmaps ($\gamma$) for all datasets.}
 \label{fig:gamma_all}
 \end{figure*}
@@ -539,8 +539,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Salinas_modulation_beta.png}
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/Botswana_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/WHU_Hi_modulation_beta.png}
+\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/IndianPines_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_5/PaviaU_modulation_beta.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_1/KSC_modulation_beta.png}
 \caption{Spatial Modulation Heatmaps ($\beta$) for all datasets.}
 \label{fig:beta_all}
 \end{figure*}
@@ -549,8 +548,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_Salinas.png}
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_Botswana.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_KSC.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_WHU_Hi.png}
+\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_KSC.png}
 \caption{Confusion Matrices for all datasets. Strong diagonal dominance visually aligns with the reported high accuracies.}
 \label{fig:conf_all}
 \end{figure*}
@@ -558,8 +556,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_IndianPines.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_PaviaU.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_Salinas.png}
-\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_Botswana.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_KSC.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_WHU_Hi.png}
+\includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_IndianPines.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_PaviaU.png} \hfill \includegraphics[width=0.28\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_last/classification_map_KSC.png}
 \caption{Full Classification Maps for all datasets. Sharp boundaries suggest effective AFDKF spatial edge preservation.}
 \label{fig:class_all}
 \end{figure*}
@@ -597,7 +594,7 @@ While the SMCNN-MLP achieves an excellent efficiency-accuracy trade-off, we expl
 While our framework establishes a strong efficiency benchmark against HybridSN and SSFTT, future work must explicitly evaluate lightweight MLP conditioning against emerging large-scale paradigms such as SpectralGPT and MambaHSI.
 
 \section{Conclusion \& Future Work}\label{sec:conclusion}
-This paper proposes a Green-AI framework for hyperspectral image classification, demonstrating that computationally expensive sequence modeling can be matched by robust spectral preprocessing and lightweight modulation. By strictly denoising signals via an Adaptive Fast Desensitized Kalman Filter and extracting frequency patterns with a Polar-Logarithmic Continuous Wavelet Transform, we highlighted the critical role of data preparation over architectural complexity.
+This paper proposes a Green-AI framework for hyperspectral image classification, demonstrating that within the SMCNN framework, BiGRU does not consistently justify its computational overhead compared to lightweight modulation. By strictly denoising signals via an Adaptive Fast Desensitized Kalman Filter and extracting frequency patterns with a Polar-Logarithmic Continuous Wavelet Transform, we highlighted the critical role of data preparation over architectural complexity.
 
 Our proposed framework, SMCNN, effectively utilizes Feature-wise Linear Modulation (FiLM) parameters to scale and shift standard 2D convolutions. Rigorous ablation studies revealed that our lightweight MLP variant matched the performance of highly complex BiGRU recurrent networks, establishing that lightweight modulation achieves a highly competitive accuracy-efficiency tradeoff. Ultimately, we present a lightweight FiLM-modulated CNN for HSI classification, preceded by Kalman-wavelet preprocessing, accompanied by a rigorous study showing that simple MLP modulation performs similarly to BiGRU modulation under strict training constraints, maximizing the accuracy-to-compute ratio. While the individual mathematical components (Kalman filters, wavelets, FiLM) are established techniques, their novel systems integration into an ultra-efficient pipeline demonstrates a new paradigm for hyperspectral remote sensing. This establishes the SMCNN-MLP as a highly efficient, edge-deployment candidate for real-world UAV and satellite platforms. 
 
