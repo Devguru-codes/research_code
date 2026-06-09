@@ -1,0 +1,237 @@
+7.9s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.9s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.9s 3 0.00s - to python to disable frozen modules.
+7.9s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.5s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.5s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.5s 7 0.00s - to python to disable frozen modules.
+8.5s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+14.7s 9 Cell 1: Setup and Utils ready.
+17.5s 10 Cell 2: Dataset Loader ready.
+17.5s 11 Cell 3: Preprocessing ready.
+17.5s 12 Cell 4: Models ready (BiGRU, UniGRU, MLP, Standard).
+17.5s 13 Cell 5: Training logic ready.
+17.5s 14 Cell 1: ALL SETUP READY (Utils, Loader, Preprocessing, Models, Training)
+18.5s 15 Using device: cuda
+18.5s 16 
+18.5s 17 ============================================================
+18.5s 18 Per-Class Accuracy for IndianPines
+18.5s 19 ============================================================
+18.5s 20 Downloading IndianPines data...
+24.8s 21 Downloading IndianPines GT...
+25.5s 22 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+25.5s 23 Applying AFDKF denoising...
+25.5s 24 Applying PLCWT feature extraction...
+25.8s 25 PLCWT: 30 bands -> 60 bands
+25.8s 26 Split (seed=42): 505 train, 9744 test
+26.0s 27 Training SMCNN-MLP for per-class analysis...
+59.6s 28 
+59.6s 29 Class                     Accuracy (%)  Samples
+59.6s 30 ────────────────────────────────────────────────
+59.6s 31 Alfalfa                         65.91%      44
+59.6s 32 Corn-notill                     96.39%    1357
+59.6s 33 Corn-mintill                    91.00%     789
+59.6s 34 Corn                            94.69%     226
+59.6s 35 Grass-pasture                   97.39%     459
+59.6s 36 Grass-trees                     98.27%     694
+59.6s 37 Grass-pasture-mowed            100.00%      27
+59.6s 38 Hay-windrowed                   99.78%     455
+59.6s 39 Oats                            63.16%      19
+59.6s 40 Soybean-notill                  98.81%     924
+59.6s 41 Soybean-mintill                 96.19%    2333
+59.6s 42 Soybean-clean                   97.87%     564
+59.6s 43 Wheat                           98.46%     195
+59.6s 44 Woods                           99.75%    1202
+59.6s 45 Buildings-Grass                 99.46%     367
+59.6s 46 Stone-Steel                     97.75%      89
+59.6s 47 ────────────────────────────────────────────────
+59.6s 48 Overall Accuracy (OA)           96.91%
+59.6s 49 Average Accuracy (AA)           93.43%
+59.6s 50 Kappa                           0.9648
+61.3s 51 Saved confusion_matrix_IndianPines.pdf
+61.5s 52 
+61.5s 53 ============================================================
+61.5s 54 Per-Class Accuracy for PaviaU
+61.5s 55 ============================================================
+61.5s 56 Downloading PaviaU data...
+99.0s 57 Downloading PaviaU GT...
+100.0s 58 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+100.2s 59 Applying AFDKF denoising...
+100.9s 60 Applying PLCWT feature extraction...
+101.3s 61 PLCWT: 30 bands -> 60 bands
+101.8s 62 Split (seed=42): 2135 train, 40641 test
+102.3s 63 Training SMCNN-MLP for per-class analysis...
+302.2s 64 
+302.2s 65 Class                     Accuracy (%)  Samples
+302.2s 66 ────────────────────────────────────────────────
+302.2s 67 Asphalt                         99.84%    6300
+302.2s 68 Meadows                         99.99%   17717
+302.2s 69 Gravel                          98.55%    1995
+302.2s 70 Trees                           97.05%    2911
+302.2s 71 Metal Sheets                    99.77%    1278
+302.2s 72 Bare Soil                      100.00%    4778
+302.2s 73 Bitumen                        100.00%    1264
+302.2s 74 Bricks                          99.43%    3498
+302.2s 75 Shadows                         96.78%     900
+302.2s 76 ────────────────────────────────────────────────
+302.2s 77 Overall Accuracy (OA)           99.56%
+302.2s 78 Average Accuracy (AA)           99.04%
+302.2s 79 Kappa                           0.9942
+302.8s 80 Saved confusion_matrix_PaviaU.pdf
+303.0s 81 
+303.0s 82 ============================================================
+303.0s 83 Per-Class Accuracy for Salinas
+303.0s 84 ============================================================
+303.4s 85 Loaded Salinas: X=(512, 217, 204), y=(512, 217), Classes=16
+303.8s 86 Applying AFDKF denoising...
+304.1s 87 Applying PLCWT feature extraction...
+304.4s 88 PLCWT: 30 bands -> 60 bands
+305.0s 89 Split (seed=42): 2697 train, 51432 test
+305.5s 90 Training SMCNN-MLP for per-class analysis...
+494.8s 91 
+494.8s 92 Class                     Accuracy (%)  Samples
+494.8s 93 ────────────────────────────────────────────────
+494.8s 94 Brocoli_1                      100.00%    1909
+494.8s 95 Brocoli_2                      100.00%    3540
+494.8s 96 Fallow                         100.00%    1878
+494.8s 97 Fallow_rough                    99.47%    1325
+494.8s 98 Fallow_smooth                   99.69%    2545
+494.8s 99 Stubble                        100.00%    3762
+494.8s 100 Celery                         100.00%    3401
+494.8s 101 Grapes                         100.00%   10708
+494.8s 102 Soil_vinyard                   100.00%    5893
+494.8s 103 Corn_green                     100.00%    3115
+494.8s 104 Lettuce_4wk                    100.00%    1015
+494.8s 105 Lettuce_5wk                    100.00%    1831
+494.8s 106 Lettuce_6wk                    100.00%     871
+494.8s 107 Lettuce_7wk                     98.92%    1017
+494.8s 108 Vinyard_untrained              100.00%    6905
+494.8s 109 Vinyard_trellis                 99.83%    1717
+494.8s 110 ────────────────────────────────────────────────
+494.8s 111 Overall Accuracy (OA)           99.94%
+494.8s 112 Average Accuracy (AA)           99.87%
+494.8s 113 Kappa                           0.9994
+495.6s 114 Saved confusion_matrix_Salinas.pdf
+495.8s 115 
+495.8s 116 ============================================================
+495.8s 117 Per-Class Accuracy for Botswana
+495.8s 118 ============================================================
+496.8s 119 Loaded Botswana: X=(1476, 256, 145), y=(1476, 256), Classes=14
+497.8s 120 Applying AFDKF denoising...
+499.1s 121 Applying PLCWT feature extraction...
+499.9s 122 PLCWT: 30 bands -> 60 bands
+499.9s 123 Split (seed=42): 156 train, 3092 test
+499.9s 124 Training SMCNN-MLP for per-class analysis...
+507.9s 125 
+507.9s 126 Class                     Accuracy (%)  Samples
+507.9s 127 ────────────────────────────────────────────────
+507.9s 128 Class_1                        100.00%     257
+507.9s 129 Class_2                        100.00%      96
+507.9s 130 Class_3                        100.00%     239
+507.9s 131 Class_4                        100.00%     205
+507.9s 132 Class_5                         98.83%     256
+507.9s 133 Class_6                         97.66%     256
+507.9s 134 Class_7                        100.00%     247
+507.9s 135 Class_8                        100.00%     193
+507.9s 136 Class_9                        100.00%     299
+507.9s 137 Class_10                       100.00%     236
+507.9s 138 Class_11                       100.00%     290
+507.9s 139 Class_12                       100.00%     172
+507.9s 140 Class_13                       100.00%     255
+507.9s 141 Class_14                       100.00%      91
+507.9s 142 ────────────────────────────────────────────────
+507.9s 143 Overall Accuracy (OA)           99.71%
+507.9s 144 Average Accuracy (AA)           99.75%
+507.9s 145 Kappa                           0.9968
+508.5s 146 Saved confusion_matrix_Botswana.pdf
+508.7s 147 
+508.7s 148 ============================================================
+508.7s 149 Per-Class Accuracy for KSC
+508.7s 150 ============================================================
+509.5s 151 Loaded KSC: X=(512, 614, 176), y=(512, 614), Classes=13
+510.6s 152 Applying AFDKF denoising...
+511.6s 153 Applying PLCWT feature extraction...
+512.2s 154 PLCWT: 30 bands -> 60 bands
+512.2s 155 Split (seed=42): 256 train, 4955 test
+512.2s 156 Training SMCNN-MLP for per-class analysis...
+536.7s 157 
+536.7s 158 Class                     Accuracy (%)  Samples
+536.7s 159 ────────────────────────────────────────────────
+536.7s 160 Scrub                          100.00%     723
+536.7s 161 Willow swamp                    70.13%     231
+536.7s 162 CP hammock                      90.16%     244
+536.7s 163 CP/Oak hammock                  44.17%     240
+536.7s 164 Slash pine                      66.01%     153
+536.7s 165 Oak/Broadleaf                   91.74%     218
+536.7s 166 Hardwood swamp                  87.00%     100
+536.7s 167 Graminoid marsh                 83.90%     410
+536.7s 168 Spartina marsh                  93.52%     494
+536.7s 169 Cattail marsh                   98.96%     384
+536.7s 170 Salt marsh                      95.74%     399
+536.7s 171 Mud flats                       98.74%     478
+536.7s 172 Water                          100.00%     881
+536.7s 173 ────────────────────────────────────────────────
+536.7s 174 Overall Accuracy (OA)           91.22%
+536.7s 175 Average Accuracy (AA)           86.16%
+536.7s 176 Kappa                           0.9020
+537.4s 177 Saved confusion_matrix_KSC.pdf
+537.6s 178 
+537.6s 179 ============================================================
+537.6s 180 Per-Class Accuracy for WHU_Hi
+537.6s 181 ============================================================
+540.9s 182 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+543.0s 183 Applying AFDKF denoising...
+544.2s 184 Applying PLCWT feature extraction...
+544.9s 185 PLCWT: 30 bands -> 60 bands
+547.9s 186 Split (seed=42): 12868 train, 244662 test
+550.6s 187 Training SMCNN-MLP for per-class analysis...
+1615.6s 188 
+1615.6s 189 Class                     Accuracy (%)  Samples
+1615.6s 190 ────────────────────────────────────────────────
+1615.6s 191 Class_1                         99.93%   42499
+1615.6s 192 Class_2                         99.65%   21616
+1615.6s 193 Class_3                         99.90%    9773
+1615.6s 194 Class_4                         98.82%    5086
+1615.6s 195 Class_5                         99.65%    1140
+1615.6s 196 Class_6                         99.07%    4307
+1615.6s 197 Class_7                         98.89%    5608
+1615.6s 198 Class_8                         99.54%   17080
+1615.6s 199 Class_9                         99.46%    8996
+1615.6s 200 Class_10                        99.57%    9991
+1615.6s 201 Class_11                        99.74%   16066
+1615.6s 202 Class_12                        99.86%    3496
+1615.6s 203 Class_13                        97.47%    8661
+1615.6s 204 Class_14                        99.75%   17632
+1615.6s 205 Class_15                        95.93%    1080
+1615.6s 206 Class_16                        99.98%   71631
+1615.6s 207 ────────────────────────────────────────────────
+1615.6s 208 Overall Accuracy (OA)           99.67%
+1615.6s 209 Average Accuracy (AA)           99.20%
+1615.6s 210 Kappa                           0.9961
+1616.4s 211 Saved confusion_matrix_WHU_Hi.pdf
+1620.7s 212 Traceback (most recent call last):
+1620.7s 213 File "<string>", line 1, in <module>
+1620.7s 214 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 131, in execute_notebook
+1620.7s 215 raise_for_execution_errors(nb, output_path)
+1620.7s 216 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+1620.7s 217 raise error
+1620.7s 218 papermill.exceptions.PapermillExecutionError:
+1620.7s 219 ---------------------------------------------------------------------------
+1620.7s 220 Exception encountered at "In [2]":
+1620.7s 221 ---------------------------------------------------------------------------
+1620.7s 222 NameError                                 Traceback (most recent call last)
+1620.7s 223 /tmp/ipykernel_23/307917941.py in <cell line: 0>()
+1620.7s 224 105     gc.collect()
+1620.7s 225 106
+1620.7s 226 --> 107 run_per_class_analysis()
+1620.7s 227 
+1620.7s 228 NameError: name 'run_per_class_analysis' is not defined
+1620.7s 229 
+1623.0s 230 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1623.0s 231 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1623.1s 232 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1623.1s 233 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1623.8s 234 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1624.1s 235 [NbConvertApp] Writing 51741 bytes to __notebook__.ipynb
+1626.6s 236 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1627.5s 237 [NbConvertApp] Writing 447215 bytes to __results__.html

@@ -1,0 +1,91 @@
+{
+  "model": "SSFTT",
+  "dataset": "PaviaU",
+  "params_M": 0.121,
+  "seeds": [
+    42,
+    100,
+    2024
+  ],
+  "per_seed": [
+    {
+      "model": "SSFTT",
+      "dataset": "PaviaU",
+      "OA": 99.46,
+      "AA": 98.78,
+      "Kappa": 0.9929,
+      "Precision": 99.07,
+      "Recall": 98.78,
+      "F1": 98.92,
+      "per_class_acc": [
+        99.97,
+        99.81,
+        98.65,
+        96.91,
+        100.0,
+        99.96,
+        100.0,
+        99.71,
+        94.0
+      ],
+      "seed": 42,
+      "train_time": 1350.85
+    },
+    {
+      "model": "SSFTT",
+      "dataset": "PaviaU",
+      "OA": 99.58,
+      "AA": 99.21,
+      "Kappa": 0.9944,
+      "Precision": 99.11,
+      "Recall": 99.21,
+      "F1": 99.16,
+      "per_class_acc": [
+        99.78,
+        99.91,
+        99.45,
+        97.08,
+        99.77,
+        99.92,
+        98.89,
+        99.74,
+        98.33
+      ],
+      "seed": 100,
+      "train_time": 1709.75
+    },
+    {
+      "model": "SSFTT",
+      "dataset": "PaviaU",
+      "OA": 99.53,
+      "AA": 99.13,
+      "Kappa": 0.9938,
+      "Precision": 99.05,
+      "Recall": 99.13,
+      "F1": 99.09,
+      "per_class_acc": [
+        99.97,
+        99.97,
+        99.35,
+        95.95,
+        99.77,
+        100.0,
+        99.6,
+        99.14,
+        98.44
+      ],
+      "seed": 2024,
+      "train_time": 957.35
+    }
+  ],
+  "mean_OA": 99.52,
+  "std_OA": 0.05,
+  "mean_AA": 99.04,
+  "std_AA": 0.19,
+  "mean_Kappa": 0.9937,
+  "std_Kappa": 0.0006,
+  "mean_Precision": 99.08,
+  "mean_Recall": 99.04,
+  "mean_F1": 99.06,
+  "mean_time": 1339.32
+}

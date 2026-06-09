@@ -1,0 +1,152 @@
+12.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+12.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+12.2s 3 0.00s - to python to disable frozen modules.
+12.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+13.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+13.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+13.0s 7 0.00s - to python to disable frozen modules.
+13.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+22.3s 9 Cell 1: Setup and Utils ready.
+26.6s 10 Cell 2: Dataset Loader ready.
+26.7s 11 Cell 3: Preprocessing ready.
+26.7s 12 Cell 4: Models ready (BiGRU, UniGRU, MLP, Standard).
+26.7s 13 Cell 5: Training logic ready.
+26.7s 14 Cell 1: ALL SETUP READY (Utils, Loader, Preprocessing, Models, Training)
+28.0s 15 Cell 8: Visualization functions ready. Call these after training to generate IEEE-ready PDFs.
+28.0s 16 Generating Visualizations for all 6 datasets...
+28.0s 17 Using device: cuda
+28.0s 18 
+28.0s 19 ==================================================
+28.0s 20 Visualizations for IndianPines
+28.0s 21 ==================================================
+28.0s 22 Downloading IndianPines data...
+35.5s 23 Downloading IndianPines GT...
+36.2s 24 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+36.2s 25 Applying AFDKF denoising...
+36.5s 26 Applying PLCWT feature extraction...
+36.5s 27 PLCWT: 30 bands -> 60 bands
+36.5s 28 Split (seed=42): 505 train, 9744 test
+36.9s 29 Quick training model on IndianPines for t-SNE...
+112.8s 30 Saved t-SNE plot to IndianPines_tsne_plot.pdf
+113.5s 31 Saved heatmap to IndianPines_modulation_gamma.pdf
+114.1s 32 Saved heatmap to IndianPines_modulation_beta.pdf
+114.3s 33 
+114.3s 34 ==================================================
+114.3s 35 Visualizations for PaviaU
+114.3s 36 ==================================================
+114.3s 37 Downloading PaviaU data...
+150.0s 38 Downloading PaviaU GT...
+151.0s 39 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+151.4s 40 Applying AFDKF denoising...
+152.1s 41 Applying PLCWT feature extraction...
+152.6s 42 PLCWT: 30 bands -> 60 bands
+153.1s 43 Split (seed=42): 2135 train, 40641 test
+153.6s 44 Quick training model on PaviaU for t-SNE...
+462.8s 45 Saved t-SNE plot to PaviaU_tsne_plot.pdf
+463.1s 46 Saved heatmap to PaviaU_modulation_gamma.pdf
+463.7s 47 Saved heatmap to PaviaU_modulation_beta.pdf
+463.9s 48 Using device: cuda
+463.9s 49 
+463.9s 50 ============================================================
+463.9s 51 SOTA Comparison on IndianPines (5 Seeds)
+463.9s 52 ============================================================
+463.9s 53 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+463.9s 54 Applying AFDKF denoising...
+464.2s 55 Applying PLCWT feature extraction...
+464.2s 56 PLCWT: 30 bands -> 60 bands
+464.2s 57 
+464.2s 58 --- Seed 42 ---
+464.2s 59 Split (seed=42): 505 train, 9744 test
+495.6s 60 Training 2D-CNN... OA=96.46%
+730.2s 61 Training 3D-CNN... OA=45.31%
+892.1s 62 Training HybridSN... OA=96.62%
+931.6s 63 Training SMCNN-MLP... OA=97.05%
+978.1s 64 Training SMCNN-BiGRU... OA=97.05%
+978.3s 65 
+978.3s 66 ────────────────────────────────────────────────────────────
+978.3s 67 FINAL RESULTS for IndianPines (Mean ± Std)
+978.3s 68 ────────────────────────────────────────────────────────────
+978.3s 69 Method                  OA (%)         AA (%)          Kappa   Time (s)
+978.3s 70 2D-CNN            96.46± 0.00   81.83± 0.00  0.9596±0.0000     30.8
+978.3s 71 3D-CNN            45.31± 0.00   19.64± 0.00  0.3233±0.0000    232.4
+978.3s 72 HybridSN          96.62± 0.00   87.06± 0.00  0.9615±0.0000    159.5
+978.3s 73 SMCNN-MLP         97.05± 0.00   94.18± 0.00  0.9665±0.0000     38.9
+978.3s 74 SMCNN-BiGRU       97.05± 0.00   95.17± 0.00  0.9664±0.0000     45.7
+978.3s 75 
+978.3s 76 ============================================================
+978.3s 77 SOTA Comparison on PaviaU (5 Seeds)
+978.3s 78 ============================================================
+978.8s 79 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+979.1s 80 Applying AFDKF denoising...
+979.8s 81 Applying PLCWT feature extraction...
+980.2s 82 PLCWT: 30 bands -> 60 bands
+980.2s 83 
+980.2s 84 --- Seed 42 ---
+980.8s 85 Split (seed=42): 2135 train, 40641 test
+1042.0s 86 Training 2D-CNN... OA=99.62%
+1889.0s 87 Training 3D-CNN... OA=85.95%
+2757.9s 88 Training HybridSN... OA=99.57%
+2867.8s 89 Training SMCNN-MLP... OA=99.44%
+3050.2s 90 Training SMCNN-BiGRU... OA=99.53%
+3050.4s 91 
+3050.4s 92 ────────────────────────────────────────────────────────────
+3050.4s 93 FINAL RESULTS for PaviaU (Mean ± Std)
+3050.4s 94 ────────────────────────────────────────────────────────────
+3050.4s 95 Method                  OA (%)         AA (%)          Kappa   Time (s)
+3050.4s 96 2D-CNN            99.62± 0.00   99.14± 0.00  0.9950±0.0000     59.3
+3050.4s 97 3D-CNN            85.95± 0.00   65.54± 0.00  0.8103±0.0000    838.3
+3050.4s 98 HybridSN          99.57± 0.00   98.92± 0.00  0.9944±0.0000    858.6
+3050.4s 99 SMCNN-MLP         99.44± 0.00   98.81± 0.00  0.9925±0.0000    107.8
+3050.4s 100 SMCNN-BiGRU       99.53± 0.00   99.25± 0.00  0.9938±0.0000    179.8
+3050.4s 101 
+3050.4s 102 ============================================================
+3050.4s 103 SOTA Comparison on WHU_Hi (5 Seeds)
+3050.4s 104 ============================================================
+3055.7s 105 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+3058.1s 106 Applying AFDKF denoising...
+3059.4s 107 Applying PLCWT feature extraction...
+3060.2s 108 PLCWT: 30 bands -> 60 bands
+3060.2s 109 
+3060.2s 110 --- Seed 42 ---
+3063.4s 111 Split (seed=42): 12868 train, 244662 test
+3971.8s 112 Training 2D-CNN... OA=99.60%
+10082.2s 113 Training 3D-CNN... OA=85.65%
+17240.3s 114 Training HybridSN... OA=99.78%
+18324.0s 115 Training SMCNN-MLP... OA=99.56%
+19122.7s 116 Training SMCNN-BiGRU... OA=99.37%
+19123.5s 117 
+19123.5s 118 ────────────────────────────────────────────────────────────
+19123.5s 119 FINAL RESULTS for WHU_Hi (Mean ± Std)
+19123.5s 120 ────────────────────────────────────────────────────────────
+19123.5s 121 Method                  OA (%)         AA (%)          Kappa   Time (s)
+19123.5s 122 2D-CNN            99.60± 0.00   98.97± 0.00  0.9953±0.0000    896.9
+19123.5s 123 3D-CNN            85.65± 0.00   64.95± 0.00  0.8305±0.0000   6058.2
+19123.5s 124 HybridSN          99.78± 0.00   99.36± 0.00  0.9975±0.0000   7097.7
+19123.5s 125 SMCNN-MLP         99.56± 0.00   99.10± 0.00  0.9948±0.0000   1072.2
+19123.5s 126 SMCNN-BiGRU       99.37± 0.00   98.56± 0.00  0.9926±0.0000    785.1
+19126.3s 127 Traceback (most recent call last):
+19126.3s 128 File "<string>", line 1, in <module>
+19126.3s 129 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 131, in execute_notebook
+19126.3s 130 raise_for_execution_errors(nb, output_path)
+19126.3s 131 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+19126.3s 132 raise error
+19126.3s 133 papermill.exceptions.PapermillExecutionError:
+19126.3s 134 ---------------------------------------------------------------------------
+19126.3s 135 Exception encountered at "In [3]":
+19126.3s 136 ---------------------------------------------------------------------------
+19126.3s 137 NameError                                 Traceback (most recent call last)
+19126.3s 138 /tmp/ipykernel_23/4171977368.py in <cell line: 0>()
+19126.3s 139 180     gc.collect()
+19126.3s 140 181
+19126.3s 141 --> 182 run_sota_comparison()
+19126.3s 142 
+19126.3s 143 NameError: name 'run_sota_comparison' is not defined
+19126.3s 144 
+19128.8s 145 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+19128.8s 146 cells[i][c] = re.sub('\\\\\|', '|', cell)
+19129.0s 147 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+19129.0s 148 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+19129.8s 149 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+19130.1s 150 [NbConvertApp] Writing 63755 bytes to __notebook__.ipynb
+19132.7s 151 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+19133.8s 152 [NbConvertApp] Writing 517933 bytes to __results__.html

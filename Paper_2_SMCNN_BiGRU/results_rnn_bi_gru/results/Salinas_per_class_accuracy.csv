@@ -1,0 +1,17 @@
+Class,Accuracy (%)
+Brocoli_green_weeds_1,100.00
+Brocoli_green_weeds_2,100.00
+Fallow,100.00
+Fallow_rough_plow,100.00
+Fallow_smooth,99.76
+Stubble,100.00
+Celery,100.00
+Grapes_untrained,99.90
+Soil_vinyard_develop,100.00
+Corn_senesced_green_weeds,100.00
+Lettuce_romaine_4wk,100.00
+Lettuce_romaine_5wk,100.00
+Lettuce_romaine_6wk,100.00
+Lettuce_romaine_7wk,99.61
+Vinyard_untrained,100.00
+Vinyard_vertical_trellis,100.00

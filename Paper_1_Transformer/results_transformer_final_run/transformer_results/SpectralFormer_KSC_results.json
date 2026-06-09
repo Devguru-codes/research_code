@@ -1,0 +1,103 @@
+{
+  "model": "SpectralFormer",
+  "dataset": "KSC",
+  "params_M": 0.252,
+  "seeds": [
+    42,
+    100,
+    2024
+  ],
+  "per_seed": [
+    {
+      "model": "SpectralFormer",
+      "dataset": "KSC",
+      "OA": 83.92,
+      "AA": 76.52,
+      "Kappa": 0.8201,
+      "Precision": 80.7,
+      "Recall": 76.52,
+      "F1": 78.04,
+      "per_class_acc": [
+        99.31,
+        61.9,
+        71.31,
+        42.5,
+        50.98,
+        65.6,
+        78.0,
+        70.98,
+        92.11,
+        94.79,
+        87.22,
+        80.13,
+        100.0
+      ],
+      "seed": 42,
+      "train_time": 121.61
+    },
+    {
+      "model": "SpectralFormer",
+      "dataset": "KSC",
+      "OA": 86.6,
+      "AA": 78.5,
+      "Kappa": 0.8506,
+      "Precision": 81.54,
+      "Recall": 78.5,
+      "F1": 79.03,
+      "per_class_acc": [
+        99.31,
+        72.29,
+        70.9,
+        37.08,
+        50.33,
+        76.15,
+        65.0,
+        68.29,
+        96.56,
+        90.62,
+        97.49,
+        96.44,
+        100.0
+      ],
+      "seed": 100,
+      "train_time": 121.42
+    },
+    {
+      "model": "SpectralFormer",
+      "dataset": "KSC",
+      "OA": 82.91,
+      "AA": 74.2,
+      "Kappa": 0.8091,
+      "Precision": 77.32,
+      "Recall": 74.2,
+      "F1": 75.24,
+      "per_class_acc": [
+        95.44,
+        52.38,
+        51.23,
+        38.33,
+        58.82,
+        66.97,
+        64.0,
+        72.44,
+        95.75,
+        91.67,
+        82.96,
+        96.03,
+        98.52
+      ],
+      "seed": 2024,
+      "train_time": 120.99
+    }
+  ],
+  "mean_OA": 84.48,
+  "std_OA": 1.56,
+  "mean_AA": 76.41,
+  "std_AA": 1.76,
+  "mean_Kappa": 0.8266,
+  "std_Kappa": 0.0176,
+  "mean_Precision": 79.85,
+  "mean_Recall": 76.41,
+  "mean_F1": 77.44,
+  "mean_time": 121.34
+}

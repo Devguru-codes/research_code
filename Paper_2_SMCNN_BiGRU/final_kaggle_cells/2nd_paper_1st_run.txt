@@ -1,0 +1,775 @@
+8.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.0s 3 0.00s - to python to disable frozen modules.
+8.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.6s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.6s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.6s 7 0.00s - to python to disable frozen modules.
+8.6s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+14.6s 9 Cell 1: Setup and Utils ready.
+17.4s 10 Cell 2: Dataset Loader ready.
+17.6s 11 Cell 3: Preprocessing ready.
+17.7s 12 Cell 4: Models ready (BiGRU, UniGRU, MLP, Standard).
+17.7s 13 Cell 5: Training logic ready.
+18.0s 14 Using device: cuda
+18.0s 15 
+18.0s 16 =======================================================
+18.0s 17 --- Starting Sequence Ablation on IndianPines (5 Seeds) ---
+18.0s 18 =======================================================
+18.0s 19 
+18.2s 20 Downloading IndianPines data...
+30.2s 21 Downloading IndianPines GT...
+31.2s 22 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+31.2s 23 Applying AFDKF denoising...
+31.2s 24 Applying PLCWT feature extraction...
+31.4s 25 PLCWT: 30 bands -> 60 bands
+31.4s 26 
+31.4s 27 === Running Seed 42 ===
+31.4s 28 Split (seed=42): 505 train, 9744 test
+31.7s 29 Training MLP...
+64.0s 30 -> OA: 96.91%, AA: 93.43%
+64.0s 31 Training UNIGRU...
+105.7s 32 -> OA: 97.24%, AA: 93.62%
+105.7s 33 Training BIGRU...
+130.5s 34 -> OA: 96.42%, AA: 93.36%
+130.5s 35 
+130.5s 36 === Running Seed 100 ===
+130.8s 37 Split (seed=100): 505 train, 9744 test
+130.8s 38 Training MLP...
+159.7s 39 -> OA: 96.04%, AA: 89.71%
+159.7s 40 Training UNIGRU...
+191.9s 41 -> OA: 96.13%, AA: 93.82%
+191.9s 42 Training BIGRU...
+234.5s 43 -> OA: 96.30%, AA: 93.58%
+234.5s 44 
+234.5s 45 === Running Seed 200 ===
+234.8s 46 Split (seed=200): 505 train, 9744 test
+234.8s 47 Training MLP...
+259.3s 48 -> OA: 96.62%, AA: 86.61%
+259.3s 49 Training UNIGRU...
+310.4s 50 -> OA: 96.17%, AA: 91.49%
+310.4s 51 Training BIGRU...
+341.7s 52 -> OA: 96.69%, AA: 91.18%
+341.7s 53 
+341.7s 54 === Running Seed 300 ===
+342.0s 55 Split (seed=300): 505 train, 9744 test
+342.0s 56 Training MLP...
+363.7s 57 -> OA: 96.94%, AA: 85.89%
+363.7s 58 Training UNIGRU...
+392.2s 59 -> OA: 97.47%, AA: 90.12%
+392.2s 60 Training BIGRU...
+435.0s 61 -> OA: 97.00%, AA: 87.16%
+435.0s 62 
+435.0s 63 === Running Seed 2024 ===
+435.3s 64 Split (seed=2024): 505 train, 9744 test
+435.3s 65 Training MLP...
+482.2s 66 -> OA: 96.54%, AA: 91.72%
+482.2s 67 Training UNIGRU...
+516.8s 68 -> OA: 96.19%, AA: 92.83%
+516.8s 69 Training BIGRU...
+536.5s 70 -> OA: 96.07%, AA: 85.88%
+536.5s 71 
+536.5s 72 --- Final Sequence Ablation Summary for IndianPines (Mean ± Std) ---
+536.5s 73 MLP: OA = 96.61 ± 0.33%, AA = 89.47 ± 2.89%, Kappa = 0.9614 ± 0.0037
+536.5s 74 UNIGRU: OA = 96.64 ± 0.59%, AA = 92.37 ± 1.39%, Kappa = 0.9617 ± 0.0067
+536.5s 75 BIGRU: OA = 96.49 ± 0.32%, AA = 90.23 ± 3.17%, Kappa = 0.9600 ± 0.0037
+536.5s 76 Saved final seed predictions for McNemar's test for IndianPines.
+536.7s 77 
+536.7s 78 =======================================================
+536.7s 79 --- Starting Sequence Ablation on PaviaU (5 Seeds) ---
+536.7s 80 =======================================================
+536.7s 81 
+536.7s 82 Downloading PaviaU data...
+605.9s 83 Downloading PaviaU GT...
+607.1s 84 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+607.4s 85 Applying AFDKF denoising...
+608.0s 86 Applying PLCWT feature extraction...
+608.5s 87 PLCWT: 30 bands -> 60 bands
+608.5s 88 
+608.5s 89 === Running Seed 42 ===
+608.9s 90 Split (seed=42): 2135 train, 40641 test
+609.4s 91 Training MLP...
+809.5s 92 -> OA: 99.56%, AA: 99.04%
+809.5s 93 Training UNIGRU...
+925.0s 94 -> OA: 99.46%, AA: 98.96%
+925.0s 95 Training BIGRU...
+1045.7s 96 -> OA: 99.46%, AA: 99.01%
+1045.9s 97 
+1045.9s 98 === Running Seed 100 ===
+1046.3s 99 Split (seed=100): 2135 train, 40641 test
+1046.8s 100 Training MLP...
+1149.3s 101 -> OA: 99.61%, AA: 99.25%
+1149.3s 102 Training UNIGRU...
+1265.4s 103 -> OA: 99.42%, AA: 99.12%
+1265.4s 104 Training BIGRU...
+1360.0s 105 -> OA: 99.48%, AA: 99.23%
+1360.2s 106 
+1360.2s 107 === Running Seed 200 ===
+1360.7s 108 Split (seed=200): 2135 train, 40641 test
+1361.1s 109 Training MLP...
+1441.6s 110 -> OA: 99.52%, AA: 98.90%
+1441.6s 111 Training UNIGRU...
+1552.8s 112 -> OA: 99.46%, AA: 98.91%
+1552.8s 113 Training BIGRU...
+1643.2s 114 -> OA: 99.38%, AA: 98.80%
+1643.4s 115 
+1643.4s 116 === Running Seed 300 ===
+1643.9s 117 Split (seed=300): 2135 train, 40641 test
+1644.3s 118 Training MLP...
+1768.4s 119 -> OA: 99.56%, AA: 99.08%
+1768.4s 120 Training UNIGRU...
+1957.6s 121 -> OA: 99.61%, AA: 99.39%
+1957.6s 122 Training BIGRU...
+2154.5s 123 -> OA: 99.71%, AA: 99.50%
+2154.7s 124 
+2154.7s 125 === Running Seed 2024 ===
+2155.2s 126 Split (seed=2024): 2135 train, 40641 test
+2155.6s 127 Training MLP...
+2277.4s 128 -> OA: 99.48%, AA: 98.97%
+2277.4s 129 Training UNIGRU...
+2365.9s 130 -> OA: 99.47%, AA: 98.97%
+2365.9s 131 Training BIGRU...
+2497.3s 132 -> OA: 99.64%, AA: 99.42%
+2497.5s 133 
+2497.5s 134 --- Final Sequence Ablation Summary for PaviaU (Mean ± Std) ---
+2497.5s 135 MLP: OA = 99.55 ± 0.05%, AA = 99.05 ± 0.12%, Kappa = 0.9940 ± 0.0006
+2497.5s 136 UNIGRU: OA = 99.48 ± 0.07%, AA = 99.07 ± 0.18%, Kappa = 0.9931 ± 0.0009
+2497.5s 137 BIGRU: OA = 99.54 ± 0.12%, AA = 99.19 ± 0.26%, Kappa = 0.9938 ± 0.0016
+2497.5s 138 Saved final seed predictions for McNemar's test for PaviaU.
+2497.5s 139 
+2497.5s 140 =======================================================
+2497.5s 141 --- Starting Sequence Ablation on Salinas (5 Seeds) ---
+2497.5s 142 =======================================================
+2497.5s 143 
+2498.2s 144 Loaded Salinas: X=(512, 217, 204), y=(512, 217), Classes=16
+2498.6s 145 Applying AFDKF denoising...
+2498.9s 146 Applying PLCWT feature extraction...
+2499.2s 147 PLCWT: 30 bands -> 60 bands
+2499.2s 148 
+2499.2s 149 === Running Seed 42 ===
+2499.7s 150 Split (seed=42): 2697 train, 51432 test
+2500.3s 151 Training MLP...
+2686.8s 152 -> OA: 99.94%, AA: 99.87%
+2686.8s 153 Training UNIGRU...
+2918.0s 154 -> OA: 99.96%, AA: 99.92%
+2918.0s 155 Training BIGRU...
+3054.5s 156 -> OA: 99.96%, AA: 99.91%
+3054.7s 157 
+3054.7s 158 === Running Seed 100 ===
+3055.3s 159 Split (seed=100): 2697 train, 51432 test
+3055.8s 160 Training MLP...
+3150.6s 161 -> OA: 99.85%, AA: 99.78%
+3150.6s 162 Training UNIGRU...
+3261.9s 163 -> OA: 99.80%, AA: 99.85%
+3261.9s 164 Training BIGRU...
+3449.5s 165 -> OA: 99.91%, AA: 99.88%
+3449.7s 166 
+3449.7s 167 === Running Seed 200 ===
+3450.2s 168 Split (seed=200): 2697 train, 51432 test
+3450.8s 169 Training MLP...
+3601.2s 170 -> OA: 99.91%, AA: 99.87%
+3601.2s 171 Training UNIGRU...
+3726.0s 172 -> OA: 99.90%, AA: 99.86%
+3726.0s 173 Training BIGRU...
+3951.7s 174 -> OA: 99.94%, AA: 99.90%
+3951.9s 175 
+3951.9s 176 === Running Seed 300 ===
+3952.5s 177 Split (seed=300): 2697 train, 51432 test
+3953.1s 178 Training MLP...
+4068.6s 179 -> OA: 99.94%, AA: 99.90%
+4068.6s 180 Training UNIGRU...
+4185.1s 181 -> OA: 99.95%, AA: 99.92%
+4185.1s 182 Training BIGRU...
+4277.3s 183 -> OA: 99.88%, AA: 99.82%
+4277.5s 184 
+4277.5s 185 === Running Seed 2024 ===
+4278.0s 186 Split (seed=2024): 2697 train, 51432 test
+4278.6s 187 Training MLP...
+4384.5s 188 -> OA: 99.90%, AA: 99.82%
+4384.5s 189 Training UNIGRU...
+4553.7s 190 -> OA: 99.93%, AA: 99.89%
+4553.7s 191 Training BIGRU...
+4645.8s 192 -> OA: 99.92%, AA: 99.86%
+4645.9s 193 
+4645.9s 194 --- Final Sequence Ablation Summary for Salinas (Mean ± Std) ---
+4645.9s 195 MLP: OA = 99.91 ± 0.03%, AA = 99.85 ± 0.04%, Kappa = 0.9990 ± 0.0004
+4645.9s 196 UNIGRU: OA = 99.91 ± 0.06%, AA = 99.89 ± 0.03%, Kappa = 0.9990 ± 0.0006
+4645.9s 197 BIGRU: OA = 99.92 ± 0.03%, AA = 99.87 ± 0.03%, Kappa = 0.9991 ± 0.0003
+4645.9s 198 Saved final seed predictions for McNemar's test for Salinas.
+4645.9s 199 
+4645.9s 200 =======================================================
+4645.9s 201 --- Starting Sequence Ablation on Botswana (5 Seeds) ---
+4645.9s 202 =======================================================
+4645.9s 203 
+4647.2s 204 Loaded Botswana: X=(1476, 256, 145), y=(1476, 256), Classes=14
+4648.2s 205 Applying AFDKF denoising...
+4649.4s 206 Applying PLCWT feature extraction...
+4650.3s 207 PLCWT: 30 bands -> 60 bands
+4650.3s 208 
+4650.3s 209 === Running Seed 42 ===
+4650.3s 210 Split (seed=42): 156 train, 3092 test
+4650.3s 211 Training MLP...
+4658.4s 212 -> OA: 99.71%, AA: 99.75%
+4658.4s 213 Training UNIGRU...
+4668.1s 214 -> OA: 99.81%, AA: 99.83%
+4668.1s 215 Training BIGRU...
+4674.1s 216 -> OA: 99.71%, AA: 99.75%
+4674.1s 217 
+4674.1s 218 === Running Seed 100 ===
+4674.4s 219 Split (seed=100): 156 train, 3092 test
+4674.4s 220 Training MLP...
+4681.4s 221 -> OA: 96.25%, AA: 95.53%
+4681.4s 222 Training UNIGRU...
+4690.4s 223 -> OA: 97.90%, AA: 97.32%
+4690.4s 224 Training BIGRU...
+4696.0s 225 -> OA: 95.76%, AA: 94.91%
+4696.0s 226 
+4696.0s 227 === Running Seed 200 ===
+4696.3s 228 Split (seed=200): 156 train, 3092 test
+4696.3s 229 Training MLP...
+4703.8s 230 -> OA: 99.03%, AA: 99.09%
+4703.8s 231 Training UNIGRU...
+4710.0s 232 -> OA: 98.67%, AA: 98.89%
+4710.0s 233 Training BIGRU...
+4717.4s 234 -> OA: 98.64%, AA: 98.79%
+4717.4s 235 
+4717.4s 236 === Running Seed 300 ===
+4717.7s 237 Split (seed=300): 156 train, 3092 test
+4717.7s 238 Training MLP...
+4726.4s 239 -> OA: 98.87%, AA: 98.98%
+4726.4s 240 Training UNIGRU...
+4733.5s 241 -> OA: 99.29%, AA: 99.39%
+4733.5s 242 Training BIGRU...
+4743.4s 243 -> OA: 98.48%, AA: 98.51%
+4743.4s 244 
+4743.4s 245 === Running Seed 2024 ===
+4743.7s 246 Split (seed=2024): 156 train, 3092 test
+4743.7s 247 Training MLP...
+4748.1s 248 -> OA: 98.03%, AA: 97.48%
+4748.1s 249 Training UNIGRU...
+4753.4s 250 -> OA: 97.22%, AA: 96.65%
+4753.4s 251 Training BIGRU...
+4761.3s 252 -> OA: 97.74%, AA: 97.24%
+4761.3s 253 
+4761.3s 254 --- Final Sequence Ablation Summary for Botswana (Mean ± Std) ---
+4761.3s 255 MLP: OA = 98.38 ± 1.19%, AA = 98.16 ± 1.51%, Kappa = 0.9824 ± 0.0129
+4761.3s 256 UNIGRU: OA = 98.58 ± 0.93%, AA = 98.42 ± 1.22%, Kappa = 0.9846 ± 0.0101
+4761.3s 257 BIGRU: OA = 98.07 ± 1.31%, AA = 97.84 ± 1.67%, Kappa = 0.9790 ± 0.0142
+4761.3s 258 Saved final seed predictions for McNemar's test for Botswana.
+4761.5s 259 
+4761.5s 260 =======================================================
+4761.5s 261 --- Starting Sequence Ablation on KSC (5 Seeds) ---
+4761.5s 262 =======================================================
+4761.5s 263 
+4762.4s 264 Loaded KSC: X=(512, 614, 176), y=(512, 614), Classes=13
+4763.5s 265 Applying AFDKF denoising...
+4764.5s 266 Applying PLCWT feature extraction...
+4765.1s 267 PLCWT: 30 bands -> 60 bands
+4765.1s 268 
+4765.1s 269 === Running Seed 42 ===
+4765.1s 270 Split (seed=42): 256 train, 4955 test
+4765.1s 271 Training MLP...
+4788.8s 272 -> OA: 91.22%, AA: 86.16%
+4788.8s 273 Training UNIGRU...
+4813.5s 274 -> OA: 89.53%, AA: 84.63%
+4813.5s 275 Training BIGRU...
+4837.2s 276 -> OA: 90.31%, AA: 85.76%
+4837.2s 277 
+4837.2s 278 === Running Seed 100 ===
+4837.5s 279 Split (seed=100): 256 train, 4955 test
+4837.5s 280 Training MLP...
+4855.1s 281 -> OA: 88.46%, AA: 81.84%
+4855.1s 282 Training UNIGRU...
+4876.6s 283 -> OA: 87.10%, AA: 79.62%
+4876.6s 284 Training BIGRU...
+4904.0s 285 -> OA: 87.08%, AA: 79.90%
+4904.0s 286 
+4904.0s 287 === Running Seed 200 ===
+4904.3s 288 Split (seed=200): 256 train, 4955 test
+4904.3s 289 Training MLP...
+4925.5s 290 -> OA: 89.65%, AA: 86.00%
+4925.5s 291 Training UNIGRU...
+4948.6s 292 -> OA: 88.17%, AA: 83.89%
+4948.6s 293 Training BIGRU...
+4968.4s 294 -> OA: 88.19%, AA: 84.99%
+4968.4s 295 
+4968.4s 296 === Running Seed 300 ===
+4968.6s 297 Split (seed=300): 256 train, 4955 test
+4968.6s 298 Training MLP...
+4992.4s 299 -> OA: 91.71%, AA: 88.57%
+4992.4s 300 Training UNIGRU...
+5021.1s 301 -> OA: 90.43%, AA: 86.01%
+5021.1s 302 Training BIGRU...
+5049.0s 303 -> OA: 89.83%, AA: 84.44%
+5049.0s 304 
+5049.0s 305 === Running Seed 2024 ===
+5049.3s 306 Split (seed=2024): 256 train, 4955 test
+5049.3s 307 Training MLP...
+5070.5s 308 -> OA: 88.09%, AA: 82.47%
+5070.5s 309 Training UNIGRU...
+5092.4s 310 -> OA: 88.15%, AA: 82.04%
+5092.4s 311 Training BIGRU...
+5113.7s 312 -> OA: 88.66%, AA: 83.25%
+5113.7s 313 
+5113.7s 314 --- Final Sequence Ablation Summary for KSC (Mean ± Std) ---
+5113.7s 315 MLP: OA = 89.82 ± 1.44%, AA = 85.01 ± 2.51%, Kappa = 0.8865 ± 0.0162
+5113.7s 316 UNIGRU: OA = 88.68 ± 1.17%, AA = 83.24 ± 2.22%, Kappa = 0.8737 ± 0.0131
+5113.7s 317 BIGRU: OA = 88.82 ± 1.16%, AA = 83.67 ± 2.05%, Kappa = 0.8753 ± 0.0129
+5113.7s 318 Saved final seed predictions for McNemar's test for KSC.
+5113.9s 319 
+5113.9s 320 =======================================================
+5113.9s 321 --- Starting Sequence Ablation on WHU_Hi (5 Seeds) ---
+5113.9s 322 =======================================================
+5113.9s 323 
+5117.7s 324 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+5119.7s 325 Applying AFDKF denoising...
+5120.9s 326 Applying PLCWT feature extraction...
+5121.7s 327 PLCWT: 30 bands -> 60 bands
+5121.7s 328 
+5121.7s 329 === Running Seed 42 ===
+5124.6s 330 Split (seed=42): 12868 train, 244662 test
+5127.2s 331 Training MLP...
+6164.4s 332 -> OA: 99.67%, AA: 99.20%
+6164.4s 333 Training UNIGRU...
+6897.1s 334 -> OA: 99.46%, AA: 98.54%
+6897.1s 335 Training BIGRU...
+8135.0s 336 -> OA: 99.48%, AA: 98.92%
+8135.6s 337 
+8135.6s 338 === Running Seed 100 ===
+8138.5s 339 Split (seed=100): 12868 train, 244662 test
+8141.2s 340 Training MLP...
+9298.4s 341 -> OA: 99.67%, AA: 99.53%
+9298.4s 342 Training UNIGRU...
+10707.2s 343 -> OA: 99.52%, AA: 99.03%
+10707.2s 344 Training BIGRU...
+11521.2s 345 -> OA: 99.43%, AA: 98.95%
+11521.9s 346 
+11521.9s 347 === Running Seed 200 ===
+11524.9s 348 Split (seed=200): 12868 train, 244662 test
+11527.6s 349 Training MLP...
+12602.8s 350 -> OA: 99.65%, AA: 98.88%
+12602.8s 351 Training UNIGRU...
+13671.4s 352 -> OA: 99.49%, AA: 98.61%
+13671.4s 353 Training BIGRU...
+15059.8s 354 -> OA: 99.46%, AA: 98.47%
+15060.5s 355 
+15060.5s 356 === Running Seed 300 ===
+15063.4s 357 Split (seed=300): 12868 train, 244662 test
+15066.0s 358 Training MLP...
+16217.6s 359 -> OA: 99.62%, AA: 99.32%
+16217.6s 360 Training UNIGRU...
+17613.3s 361 -> OA: 99.47%, AA: 99.05%
+17613.3s 362 Training BIGRU...
+18995.3s 363 -> OA: 99.36%, AA: 98.78%
+18995.9s 364 
+18995.9s 365 === Running Seed 2024 ===
+18998.9s 366 Split (seed=2024): 12868 train, 244662 test
+19001.5s 367 Training MLP...
+20158.5s 368 -> OA: 99.59%, AA: 98.81%
+20158.5s 369 Training UNIGRU...
+21243.5s 370 -> OA: 99.40%, AA: 98.46%
+21243.5s 371 Training BIGRU...
+21988.9s 372 -> OA: 99.35%, AA: 98.37%
+21989.6s 373 
+21989.6s 374 --- Final Sequence Ablation Summary for WHU_Hi (Mean ± Std) ---
+21989.6s 375 MLP: OA = 99.64 ± 0.03%, AA = 99.15 ± 0.27%, Kappa = 0.9958 ± 0.0004
+21989.6s 376 UNIGRU: OA = 99.47 ± 0.04%, AA = 98.74 ± 0.25%, Kappa = 0.9938 ± 0.0005
+21989.6s 377 BIGRU: OA = 99.41 ± 0.05%, AA = 98.70 ± 0.24%, Kappa = 0.9932 ± 0.0006
+21989.6s 378 Saved final seed predictions for McNemar's test for WHU_Hi.
+21989.8s 379 Using device: cuda
+21989.8s 380 
+21989.8s 381 =======================================================
+21989.8s 382 --- Starting Robust Ablation (20dB AWGN) on IndianPines (5 Seeds) ---
+21989.8s 383 =======================================================
+21989.8s 384 
+21989.8s 385 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+21989.8s 386 Applying AFDKF denoising...
+21990.0s 387 Applying PLCWT feature extraction...
+21990.0s 388 PLCWT: 30 bands -> 60 bands
+21990.0s 389 
+21990.0s 390 === Running Seed 42 ===
+21990.0s 391 Split (seed=42): 505 train, 9744 test
+22017.5s 392 Baseline CNN -> OA: 97.23%
+22017.5s 393 Split (seed=42): 505 train, 9744 test
+22046.4s 394 + AWP -> OA: 97.31%
+22046.4s 395 Split (seed=42): 505 train, 9744 test
+22079.7s 396 + AWP + WFA -> OA: 97.11%
+22079.7s 397 Split (seed=42): 505 train, 9744 test
+22110.6s 398 Full Model (BiGRU) -> OA: 96.65%
+22110.6s 399 
+22110.6s 400 === Running Seed 100 ===
+22110.9s 401 Split (seed=100): 505 train, 9744 test
+22134.3s 402 Baseline CNN -> OA: 97.09%
+22134.3s 403 Split (seed=100): 505 train, 9744 test
+22157.8s 404 + AWP -> OA: 97.19%
+22157.8s 405 Split (seed=100): 505 train, 9744 test
+22179.7s 406 + AWP + WFA -> OA: 96.71%
+22179.7s 407 Split (seed=100): 505 train, 9744 test
+22214.8s 408 Full Model (BiGRU) -> OA: 96.34%
+22214.8s 409 
+22214.8s 410 === Running Seed 200 ===
+22215.0s 411 Split (seed=200): 505 train, 9744 test
+22238.6s 412 Baseline CNN -> OA: 97.29%
+22238.6s 413 Split (seed=200): 505 train, 9744 test
+22263.6s 414 + AWP -> OA: 97.34%
+22263.6s 415 Split (seed=200): 505 train, 9744 test
+22294.6s 416 + AWP + WFA -> OA: 97.13%
+22294.6s 417 Split (seed=200): 505 train, 9744 test
+22338.1s 418 Full Model (BiGRU) -> OA: 96.36%
+22338.1s 419 
+22338.1s 420 === Running Seed 300 ===
+22338.3s 421 Split (seed=300): 505 train, 9744 test
+22361.3s 422 Baseline CNN -> OA: 97.72%
+22361.3s 423 Split (seed=300): 505 train, 9744 test
+22386.9s 424 + AWP -> OA: 97.31%
+22386.9s 425 Split (seed=300): 505 train, 9744 test
+22412.8s 426 + AWP + WFA -> OA: 97.76%
+22412.8s 427 Split (seed=300): 505 train, 9744 test
+22436.5s 428 Full Model (BiGRU) -> OA: 97.09%
+22436.5s 429 
+22436.5s 430 === Running Seed 2024 ===
+22436.7s 431 Split (seed=2024): 505 train, 9744 test
+22457.5s 432 Baseline CNN -> OA: 97.03%
+22457.5s 433 Split (seed=2024): 505 train, 9744 test
+22479.5s 434 + AWP -> OA: 97.49%
+22479.5s 435 Split (seed=2024): 505 train, 9744 test
+22503.4s 436 + AWP + WFA -> OA: 96.59%
+22503.4s 437 Split (seed=2024): 505 train, 9744 test
+22536.4s 438 Full Model (BiGRU) -> OA: 96.45%
+22536.4s 439 
+22536.4s 440 --- Final Robust Ablation Summary for IndianPines (Mean ± Std under 20dB Noise) ---
+22536.4s 441 Baseline CNN: OA = 97.27 ± 0.24%
+22536.4s 442 + AWP: OA = 97.33 ± 0.10%
+22536.4s 443 + AWP + WFA: OA = 97.06 ± 0.41%
+22536.4s 444 Full Model (BiGRU): OA = 96.58 ± 0.28%
+22536.6s 445 
+22536.6s 446 =======================================================
+22536.6s 447 --- Starting Robust Ablation (20dB AWGN) on PaviaU (5 Seeds) ---
+22536.6s 448 =======================================================
+22536.6s 449 
+22536.9s 450 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+22537.2s 451 Applying AFDKF denoising...
+22537.8s 452 Applying PLCWT feature extraction...
+22538.2s 453 PLCWT: 30 bands -> 60 bands
+22538.2s 454 
+22538.2s 455 === Running Seed 42 ===
+22538.6s 456 Split (seed=42): 2135 train, 40641 test
+22617.8s 457 Baseline CNN -> OA: 99.75%
+22618.1s 458 Split (seed=42): 2135 train, 40641 test
+22727.5s 459 + AWP -> OA: 99.70%
+22728.0s 460 Split (seed=42): 2135 train, 40641 test
+22835.3s 461 + AWP + WFA -> OA: 99.57%
+22835.8s 462 Split (seed=42): 2135 train, 40641 test
+22933.5s 463 Full Model (BiGRU) -> OA: 99.39%
+22933.7s 464 
+22933.7s 465 === Running Seed 100 ===
+22934.1s 466 Split (seed=100): 2135 train, 40641 test
+23034.1s 467 Baseline CNN -> OA: 99.73%
+23034.4s 468 Split (seed=100): 2135 train, 40641 test
+23136.2s 469 + AWP -> OA: 99.61%
+23136.8s 470 Split (seed=100): 2135 train, 40641 test
+23231.0s 471 + AWP + WFA -> OA: 99.57%
+23231.6s 472 Split (seed=100): 2135 train, 40641 test
+23381.2s 473 Full Model (BiGRU) -> OA: 99.37%
+23381.4s 474 
+23381.4s 475 === Running Seed 200 ===
+23381.8s 476 Split (seed=200): 2135 train, 40641 test
+23501.6s 477 Baseline CNN -> OA: 99.75%
+23501.9s 478 Split (seed=200): 2135 train, 40641 test
+23609.9s 479 + AWP -> OA: 99.69%
+23610.5s 480 Split (seed=200): 2135 train, 40641 test
+23765.9s 481 + AWP + WFA -> OA: 99.54%
+23766.4s 482 Split (seed=200): 2135 train, 40641 test
+23858.6s 483 Full Model (BiGRU) -> OA: 99.35%
+23858.8s 484 
+23858.8s 485 === Running Seed 300 ===
+23859.1s 486 Split (seed=300): 2135 train, 40641 test
+23954.5s 487 Baseline CNN -> OA: 99.73%
+23954.8s 488 Split (seed=300): 2135 train, 40641 test
+24101.3s 489 + AWP -> OA: 99.69%
+24101.8s 490 Split (seed=300): 2135 train, 40641 test
+24196.0s 491 + AWP + WFA -> OA: 99.57%
+24196.5s 492 Split (seed=300): 2135 train, 40641 test
+24389.3s 493 Full Model (BiGRU) -> OA: 99.74%
+24389.5s 494 
+24389.5s 495 === Running Seed 2024 ===
+24389.9s 496 Split (seed=2024): 2135 train, 40641 test
+24484.9s 497 Baseline CNN -> OA: 99.73%
+24485.2s 498 Split (seed=2024): 2135 train, 40641 test
+24572.0s 499 + AWP -> OA: 99.61%
+24572.5s 500 Split (seed=2024): 2135 train, 40641 test
+24706.1s 501 + AWP + WFA -> OA: 99.63%
+24706.6s 502 Split (seed=2024): 2135 train, 40641 test
+24840.2s 503 Full Model (BiGRU) -> OA: 99.64%
+24840.4s 504 
+24840.4s 505 --- Final Robust Ablation Summary for PaviaU (Mean ± Std under 20dB Noise) ---
+24840.4s 506 Baseline CNN: OA = 99.74 ± 0.01%
+24840.4s 507 + AWP: OA = 99.66 ± 0.04%
+24840.4s 508 + AWP + WFA: OA = 99.58 ± 0.03%
+24840.4s 509 Full Model (BiGRU): OA = 99.50 ± 0.16%
+24840.4s 510 
+24840.4s 511 =======================================================
+24840.4s 512 --- Starting Robust Ablation (20dB AWGN) on Salinas (5 Seeds) ---
+24840.4s 513 =======================================================
+24840.4s 514 
+24840.8s 515 Loaded Salinas: X=(512, 217, 204), y=(512, 217), Classes=16
+24841.1s 516 Applying AFDKF denoising...
+24841.5s 517 Applying PLCWT feature extraction...
+24841.5s 518 PLCWT: 30 bands -> 60 bands
+24841.5s 519 
+24841.5s 520 === Running Seed 42 ===
+24842.2s 521 Split (seed=42): 2697 train, 51432 test
+24938.0s 522 Baseline CNN -> OA: 99.92%
+24938.4s 523 Split (seed=42): 2697 train, 51432 test
+25009.9s 524 + AWP -> OA: 99.92%
+25010.5s 525 Split (seed=42): 2697 train, 51432 test
+25109.2s 526 + AWP + WFA -> OA: 99.91%
+25109.9s 527 Split (seed=42): 2697 train, 51432 test
+25218.4s 528 Full Model (BiGRU) -> OA: 99.95%
+25218.6s 529 
+25218.6s 530 === Running Seed 100 ===
+25219.1s 531 Split (seed=100): 2697 train, 51432 test
+25323.6s 532 Baseline CNN -> OA: 99.93%
+25324.0s 533 Split (seed=100): 2697 train, 51432 test
+25388.3s 534 + AWP -> OA: 99.92%
+25389.0s 535 Split (seed=100): 2697 train, 51432 test
+25515.7s 536 + AWP + WFA -> OA: 99.94%
+25516.4s 537 Split (seed=100): 2697 train, 51432 test
+25681.9s 538 Full Model (BiGRU) -> OA: 99.90%
+25682.1s 539 
+25682.1s 540 === Running Seed 200 ===
+25682.5s 541 Split (seed=200): 2697 train, 51432 test
+25778.1s 542 Baseline CNN -> OA: 99.90%
+25778.5s 543 Split (seed=200): 2697 train, 51432 test
+25864.5s 544 + AWP -> OA: 99.91%
+25865.2s 545 Split (seed=200): 2697 train, 51432 test
+25988.6s 546 + AWP + WFA -> OA: 99.92%
+25989.3s 547 Split (seed=200): 2697 train, 51432 test
+26176.8s 548 Full Model (BiGRU) -> OA: 99.93%
+26177.0s 549 
+26177.0s 550 === Running Seed 300 ===
+26177.5s 551 Split (seed=300): 2697 train, 51432 test
+26277.9s 552 Baseline CNN -> OA: 99.95%
+26278.3s 553 Split (seed=300): 2697 train, 51432 test
+26372.3s 554 + AWP -> OA: 99.92%
+26373.0s 555 Split (seed=300): 2697 train, 51432 test
+26468.1s 556 + AWP + WFA -> OA: 99.94%
+26468.7s 557 Split (seed=300): 2697 train, 51432 test
+26571.0s 558 Full Model (BiGRU) -> OA: 99.91%
+26571.2s 559 
+26571.2s 560 === Running Seed 2024 ===
+26571.7s 561 Split (seed=2024): 2697 train, 51432 test
+26665.7s 562 Baseline CNN -> OA: 99.81%
+26666.1s 563 Split (seed=2024): 2697 train, 51432 test
+26814.7s 564 + AWP -> OA: 99.83%
+26815.3s 565 Split (seed=2024): 2697 train, 51432 test
+26932.6s 566 + AWP + WFA -> OA: 99.92%
+26933.3s 567 Split (seed=2024): 2697 train, 51432 test
+27055.8s 568 Full Model (BiGRU) -> OA: 99.86%
+27056.0s 569 
+27056.0s 570 --- Final Robust Ablation Summary for Salinas (Mean ± Std under 20dB Noise) ---
+27056.0s 571 Baseline CNN: OA = 99.90 ± 0.05%
+27056.0s 572 + AWP: OA = 99.90 ± 0.04%
+27056.0s 573 + AWP + WFA: OA = 99.93 ± 0.01%
+27056.0s 574 Full Model (BiGRU): OA = 99.91 ± 0.03%
+27056.0s 575 
+27056.0s 576 =======================================================
+27056.0s 577 --- Starting Robust Ablation (20dB AWGN) on Botswana (5 Seeds) ---
+27056.0s 578 =======================================================
+27056.0s 579 
+27056.9s 580 Loaded Botswana: X=(1476, 256, 145), y=(1476, 256), Classes=14
+27057.9s 581 Applying AFDKF denoising...
+27059.1s 582 Applying PLCWT feature extraction...
+27059.9s 583 PLCWT: 30 bands -> 60 bands
+27059.9s 584 
+27059.9s 585 === Running Seed 42 ===
+27059.9s 586 Split (seed=42): 156 train, 3092 test
+27065.4s 587 Baseline CNN -> OA: 99.77%
+27065.4s 588 Split (seed=42): 156 train, 3092 test
+27070.6s 589 + AWP -> OA: 99.74%
+27070.6s 590 Split (seed=42): 156 train, 3092 test
+27077.5s 591 + AWP + WFA -> OA: 99.64%
+27077.5s 592 Split (seed=42): 156 train, 3092 test
+27085.5s 593 Full Model (BiGRU) -> OA: 99.77%
+27085.5s 594 
+27085.5s 595 === Running Seed 100 ===
+27085.8s 596 Split (seed=100): 156 train, 3092 test
+27093.9s 597 Baseline CNN -> OA: 97.28%
+27093.9s 598 Split (seed=100): 156 train, 3092 test
+27100.8s 599 + AWP -> OA: 96.93%
+27100.8s 600 Split (seed=100): 156 train, 3092 test
+27107.4s 601 + AWP + WFA -> OA: 95.86%
+27107.4s 602 Split (seed=100): 156 train, 3092 test
+27115.4s 603 Full Model (BiGRU) -> OA: 96.28%
+27115.4s 604 
+27115.4s 605 === Running Seed 200 ===
+27115.6s 606 Split (seed=200): 156 train, 3092 test
+27120.4s 607 Baseline CNN -> OA: 99.09%
+27120.4s 608 Split (seed=200): 156 train, 3092 test
+27124.3s 609 + AWP -> OA: 98.74%
+27124.3s 610 Split (seed=200): 156 train, 3092 test
+27131.8s 611 + AWP + WFA -> OA: 98.87%
+27131.8s 612 Split (seed=200): 156 train, 3092 test
+27140.6s 613 Full Model (BiGRU) -> OA: 98.71%
+27140.6s 614 
+27140.6s 615 === Running Seed 300 ===
+27140.8s 616 Split (seed=300): 156 train, 3092 test
+27146.0s 617 Baseline CNN -> OA: 99.26%
+27146.0s 618 Split (seed=300): 156 train, 3092 test
+27149.9s 619 + AWP -> OA: 99.42%
+27149.9s 620 Split (seed=300): 156 train, 3092 test
+27155.3s 621 + AWP + WFA -> OA: 98.84%
+27155.3s 622 Split (seed=300): 156 train, 3092 test
+27163.4s 623 Full Model (BiGRU) -> OA: 98.97%
+27163.4s 624 
+27163.4s 625 === Running Seed 2024 ===
+27163.7s 626 Split (seed=2024): 156 train, 3092 test
+27167.8s 627 Baseline CNN -> OA: 98.45%
+27167.8s 628 Split (seed=2024): 156 train, 3092 test
+27171.3s 629 + AWP -> OA: 98.58%
+27171.3s 630 Split (seed=2024): 156 train, 3092 test
+27176.9s 631 + AWP + WFA -> OA: 97.74%
+27176.9s 632 Split (seed=2024): 156 train, 3092 test
+27185.2s 633 Full Model (BiGRU) -> OA: 97.83%
+27185.2s 634 
+27185.2s 635 --- Final Robust Ablation Summary for Botswana (Mean ± Std under 20dB Noise) ---
+27185.2s 636 Baseline CNN: OA = 98.77 ± 0.86%
+27185.2s 637 + AWP: OA = 98.68 ± 0.98%
+27185.2s 638 + AWP + WFA: OA = 98.19 ± 1.31%
+27185.2s 639 Full Model (BiGRU): OA = 98.31 ± 1.19%
+27185.4s 640 
+27185.4s 641 =======================================================
+27185.4s 642 --- Starting Robust Ablation (20dB AWGN) on KSC (5 Seeds) ---
+27185.4s 643 =======================================================
+27185.4s 644 
+27186.1s 645 Loaded KSC: X=(512, 614, 176), y=(512, 614), Classes=13
+27187.2s 646 Applying AFDKF denoising...
+27188.1s 647 Applying PLCWT feature extraction...
+27188.7s 648 PLCWT: 30 bands -> 60 bands
+27188.7s 649 
+27188.7s 650 === Running Seed 42 ===
+27188.7s 651 Split (seed=42): 256 train, 4955 test
+27200.6s 652 Baseline CNN -> OA: 62.24%
+27200.6s 653 Split (seed=42): 256 train, 4955 test
+27209.3s 654 + AWP -> OA: 67.83%
+27209.3s 655 Split (seed=42): 256 train, 4955 test
+27222.0s 656 + AWP + WFA -> OA: 83.83%
+27222.0s 657 Split (seed=42): 256 train, 4955 test
+27242.6s 658 Full Model (BiGRU) -> OA: 85.23%
+27242.6s 659 
+27242.6s 660 === Running Seed 100 ===
+27242.9s 661 Split (seed=100): 256 train, 4955 test
+27253.3s 662 Baseline CNN -> OA: 66.12%
+27253.3s 663 Split (seed=100): 256 train, 4955 test
+27262.1s 664 + AWP -> OA: 63.53%
+27262.1s 665 Split (seed=100): 256 train, 4955 test
+27278.4s 666 + AWP + WFA -> OA: 83.59%
+27278.4s 667 Split (seed=100): 256 train, 4955 test
+27300.7s 668 Full Model (BiGRU) -> OA: 83.23%
+27300.7s 669 
+27300.7s 670 === Running Seed 200 ===
+27300.9s 671 Split (seed=200): 256 train, 4955 test
+27310.5s 672 Baseline CNN -> OA: 62.26%
+27310.5s 673 Split (seed=200): 256 train, 4955 test
+27318.2s 674 + AWP -> OA: 64.94%
+27318.2s 675 Split (seed=200): 256 train, 4955 test
+27332.4s 676 + AWP + WFA -> OA: 82.12%
+27332.4s 677 Split (seed=200): 256 train, 4955 test
+27359.5s 678 Full Model (BiGRU) -> OA: 84.20%
+27359.5s 679 
+27359.5s 680 === Running Seed 300 ===
+27359.8s 681 Split (seed=300): 256 train, 4955 test
+27368.4s 682 Baseline CNN -> OA: 62.36%
+27368.4s 683 Split (seed=300): 256 train, 4955 test
+27378.7s 684 + AWP -> OA: 63.07%
+27378.7s 685 Split (seed=300): 256 train, 4955 test
+27398.6s 686 + AWP + WFA -> OA: 83.13%
+27398.6s 687 Split (seed=300): 256 train, 4955 test
+27415.9s 688 Full Model (BiGRU) -> OA: 77.88%
+27415.9s 689 
+27415.9s 690 === Running Seed 2024 ===
+27416.1s 691 Split (seed=2024): 256 train, 4955 test
+27424.5s 692 Baseline CNN -> OA: 62.58%
+27424.5s 693 Split (seed=2024): 256 train, 4955 test
+27433.8s 694 + AWP -> OA: 63.92%
+27433.8s 695 Split (seed=2024): 256 train, 4955 test
+27453.0s 696 + AWP + WFA -> OA: 83.87%
+27453.0s 697 Split (seed=2024): 256 train, 4955 test
+27477.5s 698 Full Model (BiGRU) -> OA: 83.47%
+27477.5s 699 
+27477.5s 700 --- Final Robust Ablation Summary for KSC (Mean ± Std under 20dB Noise) ---
+27477.5s 701 Baseline CNN: OA = 63.11 ± 1.51%
+27477.5s 702 + AWP: OA = 64.66 ± 1.70%
+27477.5s 703 + AWP + WFA: OA = 83.31 ± 0.65%
+27477.5s 704 Full Model (BiGRU): OA = 82.80 ± 2.56%
+27477.7s 705 
+27477.7s 706 =======================================================
+27477.7s 707 --- Starting Robust Ablation (20dB AWGN) on WHU_Hi (5 Seeds) ---
+27477.7s 708 =======================================================
+27477.7s 709 
+27480.6s 710 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+27482.7s 711 Applying AFDKF denoising...
+27483.8s 712 Applying PLCWT feature extraction...
+27484.6s 713 PLCWT: 30 bands -> 60 bands
+27484.6s 714 
+27484.6s 715 === Running Seed 42 ===
+27486.4s 716 Split (seed=42): 12868 train, 244662 test
+28057.4s 717 Baseline CNN -> OA: 99.61%
+28059.5s 718 Split (seed=42): 12868 train, 244662 test
+28812.6s 719 + AWP -> OA: 99.65%
+28815.8s 720 Split (seed=42): 12868 train, 244662 test
+28876.1s 721 Kernel died while waiting for execute reply.
+28876.2s 722 Traceback (most recent call last):
+28876.2s 723 File "/usr/local/lib/python3.12/dist-packages/nbclient/client.py", line 949, in async_execute_cell
+28876.3s 724 exec_reply = await self.task_poll_for_reply
+28876.3s 725 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 726 File "/usr/local/lib/python3.12/dist-packages/nbclient/client.py", line 730, in _async_poll_for_reply
+28876.3s 727 msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+28876.3s 728 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 729 File "/usr/local/lib/python3.12/dist-packages/nbclient/util.py", line 96, in ensure_async
+28876.3s 730 result = await obj
+28876.3s 731 ^^^^^^^^^
+28876.3s 732 File "/usr/local/lib/python3.12/dist-packages/jupyter_client/channels.py", line 224, in get_msg
+28876.3s 733 ready = await self.socket.poll(timeout)
+28876.3s 734 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 735 asyncio.exceptions.CancelledError
+28876.3s 736 
+28876.3s 737 During handling of the above exception, another exception occurred:
+28876.3s 738 
+28876.3s 739 Traceback (most recent call last):
+28876.3s 740 File "<string>", line 1, in <module>
+28876.3s 741 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 116, in execute_notebook
+28876.3s 742 nb = papermill_engines.execute_notebook_with_engine(
+28876.3s 743 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 744 File "/usr/local/lib/python3.12/dist-packages/papermill/engines.py", line 49, in execute_notebook_with_engine
+28876.3s 745 return self.get_engine(engine_name).execute_notebook(nb, kernel_name, **kwargs)
+28876.3s 746 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 747 File "/usr/local/lib/python3.12/dist-packages/papermill/engines.py", line 371, in execute_notebook
+28876.3s 748 cls.execute_managed_notebook(nb_man, kernel_name, log_output=log_output, **kwargs)
+28876.3s 749 File "/usr/local/lib/python3.12/dist-packages/papermill/engines.py", line 443, in execute_managed_notebook
+28876.3s 750 return PapermillNotebookClient(nb_man, **final_kwargs).execute()
+28876.3s 751 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 752 File "/usr/local/lib/python3.12/dist-packages/papermill/clientwrap.py", line 45, in execute
+28876.3s 753 self.papermill_execute_cells()
+28876.3s 754 File "/usr/local/lib/python3.12/dist-packages/papermill/clientwrap.py", line 72, in papermill_execute_cells
+28876.3s 755 self.execute_cell(cell, index)
+28876.3s 756 File "/usr/local/lib/python3.12/dist-packages/nbclient/util.py", line 84, in wrapped
+28876.3s 757 return just_run(coro(*args, **kwargs))
+28876.3s 758 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 759 File "/usr/local/lib/python3.12/dist-packages/nbclient/util.py", line 62, in just_run
+28876.3s 760 return loop.run_until_complete(coro)
+28876.3s 761 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28876.3s 762 File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+28876.3s 763 return future.result()
+28876.3s 764 ^^^^^^^^^^^^^^^
+28876.3s 765 File "/usr/local/lib/python3.12/dist-packages/nbclient/client.py", line 953, in async_execute_cell
+28876.3s 766 raise DeadKernelError("Kernel died")
+28876.3s 767 nbclient.exceptions.DeadKernelError: Kernel died
+28879.6s 768 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+28879.6s 769 cells[i][c] = re.sub('\\\\\|', '|', cell)
+28879.9s 770 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+28879.9s 771 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+28881.8s 772 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+28882.2s 773 [NbConvertApp] Writing 107751 bytes to __notebook__.ipynb
+28884.5s 774 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+28885.9s 775 [NbConvertApp] Writing 605396 bytes to __results__.html

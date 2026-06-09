@@ -1,0 +1,17 @@
+Class,Accuracy (%)
+Alfalfa,81.82
+Corn-notill,95.28
+Corn-mintill,88.21
+Corn,98.67
+Grass-pasture,98.69
+Grass-trees,98.27
+Grass-pasture-mowed,74.07
+Hay-windrowed,99.34
+Oats,84.21
+Soybean-notill,97.40
+Soybean-mintill,96.79
+Soybean-clean,96.81
+Wheat,97.44
+Woods,99.33
+Buildings-Grass-Trees-Drives,100.00
+Stone-Steel-Towers,96.63

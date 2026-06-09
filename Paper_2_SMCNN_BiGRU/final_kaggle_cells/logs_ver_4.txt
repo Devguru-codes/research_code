@@ -1,0 +1,73 @@
+7.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.0s 3 0.00s - to python to disable frozen modules.
+7.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.6s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.6s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.6s 7 0.00s - to python to disable frozen modules.
+7.6s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+13.4s 9 Cell 1: Setup and Utils ready.
+16.1s 10 Cell 2: Dataset Loader ready.
+16.1s 11 Cell 3: Preprocessing ready.
+16.1s 12 Cell 4: Models ready (BiGRU, UniGRU, MLP, Standard).
+16.1s 13 Cell 5: Training logic ready.
+16.1s 14 Cell 1: ALL SETUP READY (Utils, Loader, Preprocessing, Models, Training)
+17.2s 15 Cell 8: Visualization functions ready. Call these after training to generate IEEE-ready PDFs.
+17.2s 16 Generating Visualizations for all 6 datasets...
+17.2s 17 Using device: cuda
+17.2s 18 
+17.2s 19 ==================================================
+17.2s 20 Visualizations for IndianPines
+17.2s 21 ==================================================
+17.2s 22 Downloading IndianPines data...
+22.1s 23 Downloading IndianPines GT...
+22.7s 24 Loaded IndianPines: X=(145, 145, 200), y=(145, 145), Classes=16
+22.7s 25 Applying AFDKF denoising...
+22.7s 26 Applying PLCWT feature extraction...
+23.0s 27 PLCWT: 30 bands -> 60 bands
+23.0s 28 Split (seed=42): 505 train, 9744 test
+23.4s 29 Quick training model on IndianPines for t-SNE...
+93.6s 30 Saved t-SNE plot to IndianPines_tsne_plot.pdf
+94.2s 31 Saved heatmap to IndianPines_modulation_gamma.pdf
+94.7s 32 Saved heatmap to IndianPines_modulation_beta.pdf
+94.9s 33 
+94.9s 34 ==================================================
+94.9s 35 Visualizations for PaviaU
+94.9s 36 ==================================================
+94.9s 37 Downloading PaviaU data...
+144.3s 38 Downloading PaviaU GT...
+145.2s 39 Loaded PaviaU: X=(610, 340, 103), y=(610, 340), Classes=9
+145.5s 40 Applying AFDKF denoising...
+146.1s 41 Applying PLCWT feature extraction...
+146.5s 42 PLCWT: 30 bands -> 60 bands
+147.0s 43 Split (seed=42): 2135 train, 40641 test
+147.5s 44 Quick training model on PaviaU for t-SNE...
+448.0s 45 Saved t-SNE plot to PaviaU_tsne_plot.pdf
+451.4s 46 Traceback (most recent call last):
+451.4s 47 File "<string>", line 1, in <module>
+451.4s 48 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 131, in execute_notebook
+451.4s 49 raise_for_execution_errors(nb, output_path)
+451.4s 50 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+451.4s 51 raise error
+451.4s 52 papermill.exceptions.PapermillExecutionError:
+451.4s 53 ---------------------------------------------------------------------------
+451.4s 54 Exception encountered at "In [2]":
+451.4s 55 ---------------------------------------------------------------------------
+451.4s 56 IndexError                                Traceback (most recent call last)
+451.4s 57 /tmp/ipykernel_23/1864259227.py in <cell line: 0>()
+451.4s 58 111         gamma, beta = model.get_last_modulation_params()
+451.4s 59 112         if gamma is not None and beta is not None:
+451.4s 60 --> 113             plot_modulation_heatmap(gamma.cpu().numpy().squeeze()[:50, :], title=f"{dataset_name} BiGRU Scale (\\gamma)", filename=f"{dataset_name}_modulation_gamma.pdf")
+451.4s 61 114             plot_beta_heatmap(beta.cpu().numpy().squeeze()[:50, :], title=f"{dataset_name} BiGRU Shift (\\beta)", filename=f"{dataset_name}_modulation_beta.pdf")
+451.4s 62 115
+451.4s 63 
+451.4s 64 IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+451.4s 65 
+453.5s 66 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+453.5s 67 cells[i][c] = re.sub('\\\\\|', '|', cell)
+453.7s 68 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+453.7s 69 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+454.3s 70 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+454.6s 71 [NbConvertApp] Writing 60841 bytes to __notebook__.ipynb
+457.0s 72 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+458.0s 73 [NbConvertApp] Writing 515578 bytes to __results__.html

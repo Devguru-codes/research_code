@@ -1,0 +1,30 @@
+[
+  {
+    "Source": "IndianPines",
+    "Target": "Salinas",
+    "Transfer OA": 3.927515943381552,
+    "Train OA": 100.0,
+    "Valid Samples": 51432
+  },
+  {
+    "Source": "Salinas",
+    "Target": "IndianPines",
+    "Transfer OA": 4.11535303776683,
+    "Train OA": 100.0,
+    "Valid Samples": 9744
+  },
+  {
+    "Source": "IndianPines",
+    "Target": "PaviaU",
+    "Transfer OA": 9.827514086759676,
+    "Train OA": 100.0,
+    "Valid Samples": 40641
+  },
+  {
+    "Source": "PaviaU",
+    "Target": "IndianPines",
+    "Transfer OA": 11.375921375921376,
+    "Train OA": 100.0,
+    "Valid Samples": 4070
+  }
+]

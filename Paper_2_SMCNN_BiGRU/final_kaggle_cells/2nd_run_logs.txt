@@ -1,0 +1,436 @@
+6.4s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.4s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.4s 3 0.00s - to python to disable frozen modules.
+6.4s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.0s 7 0.00s - to python to disable frozen modules.
+7.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.4s 9 Cell 1: Setup and Utils ready.
+14.8s 10 Cell 2: Dataset Loader ready.
+14.8s 11 Cell 3: Preprocessing ready.
+14.8s 12 Cell 4: Models ready (BiGRU, UniGRU, MLP, Standard).
+14.8s 13 Cell 5: Training logic ready.
+14.8s 14 Cell 1: ALL SETUP READY (Utils, Loader, Preprocessing, Models, Training)
+15.0s 15 Using device: cuda
+15.0s 16 
+15.0s 17 =======================================================
+15.0s 18 --- Starting Robust Ablation (20dB AWGN) on WHU_Hi (5 Seeds) ---
+15.0s 19 (OOM-Safe Version. Other 5 datasets already completed.)
+15.0s 20 =======================================================
+15.0s 21 
+19.1s 22 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+21.1s 23 Applying AFDKF denoising...
+22.8s 24 Applying PLCWT feature extraction...
+23.7s 25 PLCWT: 30 bands -> 60 bands
+23.7s 26 
+23.7s 27 === Running Seed 42 ===
+25.6s 28 Split (seed=42): 12868 train, 244662 test
+738.9s 29 Baseline CNN -> OA: 99.61%
+741.2s 30 Split (seed=42): 12868 train, 244662 test
+1443.2s 31 + AWP -> OA: 99.67%
+1446.5s 32 Split (seed=42): 12868 train, 244662 test
+2429.5s 33 + AWP + WFA -> OA: 99.69%
+2433.1s 34 Split (seed=42): 12868 train, 244662 test
+3262.2s 35 Full Model (BiGRU) -> OA: 99.38%
+3262.8s 36 
+3262.8s 37 === Running Seed 100 ===
+3264.7s 38 Split (seed=100): 12868 train, 244662 test
+4004.8s 39 Baseline CNN -> OA: 99.62%
+4007.1s 40 Split (seed=100): 12868 train, 244662 test
+4756.1s 41 + AWP -> OA: 99.68%
+4759.5s 42 Split (seed=100): 12868 train, 244662 test
+5738.3s 43 + AWP + WFA -> OA: 99.66%
+5741.9s 44 Split (seed=100): 12868 train, 244662 test
+6477.5s 45 Full Model (BiGRU) -> OA: 99.41%
+6478.1s 46 
+6478.1s 47 === Running Seed 200 ===
+6480.0s 48 Split (seed=200): 12868 train, 244662 test
+7330.2s 49 Baseline CNN -> OA: 99.65%
+7332.5s 50 Split (seed=200): 12868 train, 244662 test
+8183.1s 51 + AWP -> OA: 99.68%
+8186.4s 52 Split (seed=200): 12868 train, 244662 test
+8913.6s 53 + AWP + WFA -> OA: 99.63%
+8917.2s 54 Split (seed=200): 12868 train, 244662 test
+9978.5s 55 Full Model (BiGRU) -> OA: 99.46%
+9979.1s 56 
+9979.1s 57 === Running Seed 300 ===
+9981.1s 58 Split (seed=300): 12868 train, 244662 test
+10753.8s 59 Baseline CNN -> OA: 99.59%
+10756.2s 60 Split (seed=300): 12868 train, 244662 test
+11571.8s 61 + AWP -> OA: 99.59%
+11575.2s 62 Split (seed=300): 12868 train, 244662 test
+12502.0s 63 + AWP + WFA -> OA: 99.62%
+12505.6s 64 Split (seed=300): 12868 train, 244662 test
+13838.3s 65 Full Model (BiGRU) -> OA: 99.44%
+13839.0s 66 
+13839.0s 67 === Running Seed 2024 ===
+13840.8s 68 Split (seed=2024): 12868 train, 244662 test
+14694.2s 69 Baseline CNN -> OA: 99.55%
+14696.5s 70 Split (seed=2024): 12868 train, 244662 test
+15453.4s 71 + AWP -> OA: 99.65%
+15456.8s 72 Split (seed=2024): 12868 train, 244662 test
+16278.2s 73 + AWP + WFA -> OA: 99.53%
+16281.8s 74 Split (seed=2024): 12868 train, 244662 test
+17645.6s 75 Full Model (BiGRU) -> OA: 99.52%
+17646.2s 76 
+17646.2s 77 --- Final Robust Ablation Summary for WHU_Hi (Mean ± Std under 20dB Noise) ---
+17646.2s 78 Baseline CNN: OA = 99.60 ± 0.03%
+17646.2s 79 + AWP: OA = 99.65 ± 0.04%
+17646.2s 80 + AWP + WFA: OA = 99.62 ± 0.05%
+17646.2s 81 Full Model (BiGRU): OA = 99.44 ± 0.05%
+17646.2s 82 
+17646.2s 83 =======================================================
+17646.2s 84 --- FULL ROBUST ABLATION PAPER SUMMARY (ALL 6 DATASETS) ---
+17646.2s 85 =======================================================
+17646.2s 86 
+17646.2s 87 [IndianPines]
+17646.2s 88 Baseline CNN: OA = 97.27 ± 0.24%
+17646.2s 89 + AWP: OA = 97.33 ± 0.10%
+17646.2s 90 + AWP + WFA: OA = 97.06 ± 0.41%
+17646.2s 91 Full Model (BiGRU): OA = 96.58 ± 0.28%
+17646.2s 92 
+17646.2s 93 [PaviaU]
+17646.2s 94 Baseline CNN: OA = 99.74 ± 0.01%
+17646.2s 95 + AWP: OA = 99.66 ± 0.04%
+17646.2s 96 + AWP + WFA: OA = 99.58 ± 0.03%
+17646.2s 97 Full Model (BiGRU): OA = 99.50 ± 0.16%
+17646.2s 98 
+17646.2s 99 [Salinas]
+17646.2s 100 Baseline CNN: OA = 99.90 ± 0.05%
+17646.2s 101 + AWP: OA = 99.90 ± 0.04%
+17646.2s 102 + AWP + WFA: OA = 99.93 ± 0.01%
+17646.2s 103 Full Model (BiGRU): OA = 99.91 ± 0.03%
+17646.2s 104 
+17646.2s 105 [Botswana]
+17646.2s 106 Baseline CNN: OA = 98.77 ± 0.86%
+17646.2s 107 + AWP: OA = 98.68 ± 0.98%
+17646.2s 108 + AWP + WFA: OA = 98.19 ± 1.31%
+17646.2s 109 Full Model (BiGRU): OA = 98.31 ± 1.19%
+17646.2s 110 
+17646.2s 111 [KSC]
+17646.2s 112 Baseline CNN: OA = 63.11 ± 1.51%
+17646.2s 113 + AWP: OA = 64.66 ± 1.70%
+17646.2s 114 + AWP + WFA: OA = 83.31 ± 0.65%
+17646.2s 115 Full Model (BiGRU): OA = 82.80 ± 2.56%
+17646.4s 116 <>:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 117 <>:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 118 <>:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 119 <>:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 120 <>:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 121 <>:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 122 /tmp/ipykernel_23/2420692632.py:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 123 def plot_modulation_heatmap(gamma_values, title="BiGRU Modulation Weights (\gamma)", filename="modulation_gamma_heatmap.pdf"):
+17646.4s 124 /tmp/ipykernel_23/2420692632.py:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 125 sns.heatmap(gamma_values, cmap='viridis', cbar_kws={'label': 'Scale factor (\gamma)'})
+17646.4s 126 /tmp/ipykernel_23/2420692632.py:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 127 plot_modulation_heatmap(gamma.cpu().numpy().squeeze()[:50, :], title=f"{dataset_name} BiGRU Scale (\gamma)", filename=f"{dataset_name}_modulation_gamma.pdf")
+17646.4s 128 
+17646.4s 129 <>:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 130 <>:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 131 <>:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 132 <>:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 133 <>:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 134 <>:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 135 /tmp/ipykernel_23/2420692632.py:30: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 136 def plot_modulation_heatmap(gamma_values, title="BiGRU Modulation Weights (\gamma)", filename="modulation_gamma_heatmap.pdf"):
+17646.4s 137 /tmp/ipykernel_23/2420692632.py:33: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 138 sns.heatmap(gamma_values, cmap='viridis', cbar_kws={'label': 'Scale factor (\gamma)'})
+17646.4s 139 /tmp/ipykernel_23/2420692632.py:113: SyntaxWarning: invalid escape sequence '\g'
+17646.4s 140 plot_modulation_heatmap(gamma.cpu().numpy().squeeze()[:50, :], title=f"{dataset_name} BiGRU Scale (\gamma)", filename=f"{dataset_name}_modulation_gamma.pdf")
+17647.0s 141 Cell 8: Visualization functions ready. Call these after training to generate IEEE-ready PDFs.
+17647.0s 142 Generating Visualizations for all 6 datasets...
+17647.0s 143 Using device: cuda
+17647.0s 144 
+17647.0s 145 ==================================================
+17647.0s 146 Visualizations for IndianPines
+17647.0s 147 ==================================================
+17647.0s 148 Downloading IndianPines data...
+17679.1s 149 Could not load IndianPines. Skipping. <urlopen error [Errno -3] Temporary failure in name resolution>
+17679.1s 150 
+17679.1s 151 ==================================================
+17679.1s 152 Visualizations for PaviaU
+17679.1s 153 ==================================================
+17679.1s 154 Downloading PaviaU data...
+17711.1s 155 Could not load PaviaU. Skipping. <urlopen error [Errno -3] Temporary failure in name resolution>
+17711.1s 156 
+17711.1s 157 ==================================================
+17711.1s 158 Visualizations for Salinas
+17711.1s 159 ==================================================
+17711.6s 160 Loaded Salinas: X=(512, 217, 204), y=(512, 217), Classes=16
+17712.0s 161 Applying AFDKF denoising...
+17712.3s 162 Applying PLCWT feature extraction...
+17712.3s 163 PLCWT: 30 bands -> 60 bands
+17713.1s 164 Split (seed=42): 2697 train, 51432 test
+17713.7s 165 Quick training model on Salinas for t-SNE...
+18051.0s 166 Saved t-SNE plot to Salinas_tsne_plot.pdf
+18051.8s 167 Saved heatmap to Salinas_modulation_gamma.pdf
+18052.5s 168 Saved heatmap to Salinas_modulation_beta.pdf
+18052.7s 169 
+18052.7s 170 ==================================================
+18052.7s 171 Visualizations for Botswana
+18052.7s 172 ==================================================
+18054.4s 173 Loaded Botswana: X=(1476, 256, 145), y=(1476, 256), Classes=14
+18055.5s 174 Applying AFDKF denoising...
+18056.8s 175 Applying PLCWT feature extraction...
+18057.6s 176 PLCWT: 30 bands -> 60 bands
+18057.6s 177 Split (seed=42): 156 train, 3092 test
+18057.6s 178 Quick training model on Botswana for t-SNE...
+18073.6s 179 Saved t-SNE plot to Botswana_tsne_plot.pdf
+18074.1s 180 Saved heatmap to Botswana_modulation_gamma.pdf
+18074.7s 181 Saved heatmap to Botswana_modulation_beta.pdf
+18074.9s 182 
+18074.9s 183 ==================================================
+18074.9s 184 Visualizations for KSC
+18074.9s 185 ==================================================
+18076.2s 186 Loaded KSC: X=(512, 614, 176), y=(512, 614), Classes=13
+18077.3s 187 Applying AFDKF denoising...
+18078.3s 188 Applying PLCWT feature extraction...
+18078.9s 189 PLCWT: 30 bands -> 60 bands
+18078.9s 190 Split (seed=42): 256 train, 4955 test
+18078.9s 191 Quick training model on KSC for t-SNE...
+18106.5s 192 Saved t-SNE plot to KSC_tsne_plot.pdf
+18107.1s 193 Saved heatmap to KSC_modulation_gamma.pdf
+18107.7s 194 Saved heatmap to KSC_modulation_beta.pdf
+18107.9s 195 
+18107.9s 196 ==================================================
+18107.9s 197 Visualizations for WHU_Hi
+18107.9s 198 ==================================================
+18110.7s 199 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+18113.1s 200 Applying AFDKF denoising...
+18114.2s 201 Applying PLCWT feature extraction...
+18114.9s 202 PLCWT: 30 bands -> 60 bands
+18117.9s 203 Split (seed=42): 12868 train, 244662 test
+18120.4s 204 Quick training model on WHU_Hi for t-SNE...
+20524.4s 205 Saved t-SNE plot to WHU_Hi_tsne_plot.pdf
+20525.1s 206 Saved heatmap to WHU_Hi_modulation_gamma.pdf
+20525.9s 207 Saved heatmap to WHU_Hi_modulation_beta.pdf
+20526.5s 208 
+20526.5s 209 =======================================================
+20526.5s 210 --- McNemar's Statistical Significance Test ---
+20526.5s 211 =======================================================
+20526.5s 212 
+20526.5s 213 [IndianPines]
+20526.5s 214 ERROR: sequence_ablation_preds_IndianPines.npz not found!
+20526.5s 215 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.5s 216 
+20526.5s 217 [PaviaU]
+20526.5s 218 ERROR: sequence_ablation_preds_PaviaU.npz not found!
+20526.5s 219 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.5s 220 
+20526.5s 221 [Salinas]
+20526.5s 222 ERROR: sequence_ablation_preds_Salinas.npz not found!
+20526.5s 223 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.5s 224 
+20526.5s 225 [Botswana]
+20526.5s 226 ERROR: sequence_ablation_preds_Botswana.npz not found!
+20526.5s 227 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.5s 228 
+20526.5s 229 [KSC]
+20526.5s 230 ERROR: sequence_ablation_preds_KSC.npz not found!
+20526.5s 231 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.5s 232 
+20526.5s 233 [WHU_Hi]
+20526.5s 234 ERROR: sequence_ablation_preds_WHU_Hi.npz not found!
+20526.5s 235 Please upload the .npz files from your 'results_rnn_latest' folder to Kaggle as a dataset.
+20526.6s 236 Using device: cuda
+20526.6s 237 
+20526.6s 238 ============================================================
+20526.6s 239 SOTA Comparison on IndianPines (5 Seeds)
+20526.6s 240 ============================================================
+20526.6s 241 Downloading IndianPines data...
+20558.8s 242 Could not load IndianPines: <urlopen error [Errno -3] Temporary failure in name resolution>. Skipping...
+20558.8s 243 
+20558.8s 244 ============================================================
+20558.8s 245 SOTA Comparison on PaviaU (5 Seeds)
+20558.8s 246 ============================================================
+20558.8s 247 Downloading PaviaU data...
+20590.8s 248 Could not load PaviaU: <urlopen error [Errno -3] Temporary failure in name resolution>. Skipping...
+20590.8s 249 
+20590.8s 250 ============================================================
+20590.8s 251 SOTA Comparison on Salinas (5 Seeds)
+20590.8s 252 ============================================================
+20591.1s 253 Loaded Salinas: X=(512, 217, 204), y=(512, 217), Classes=16
+20591.5s 254 Applying AFDKF denoising...
+20591.9s 255 Applying PLCWT feature extraction...
+20591.9s 256 PLCWT: 30 bands -> 60 bands
+20591.9s 257 
+20591.9s 258 --- Seed 42 ---
+20592.7s 259 Split (seed=42): 2697 train, 51432 test
+20684.6s 260 Training 2D-CNN... OA=99.97%
+22073.2s 261 Training 3D-CNN... OA=98.15%
+22662.6s 262 Training HybridSN... OA=99.95%
+22755.0s 263 Training SMCNN-MLP... OA=99.87%
+22857.6s 264 Training SMCNN-BiGRU... OA=99.93%
+22857.8s 265 
+22857.8s 266 --- Seed 100 ---
+22858.4s 267 Split (seed=100): 2697 train, 51432 test
+22968.1s 268 Training 2D-CNN... OA=99.93%
+24359.3s 269 Training 3D-CNN... OA=97.27%
+24981.7s 270 Training HybridSN... OA=99.95%
+25115.5s 271 Training SMCNN-MLP... OA=99.92%
+25279.5s 272 Training SMCNN-BiGRU... OA=99.87%
+25279.7s 273 
+25279.7s 274 --- Seed 200 ---
+25280.3s 275 Split (seed=200): 2697 train, 51432 test
+25356.4s 276 Training 2D-CNN... OA=99.92%
+26552.8s 277 Training 3D-CNN... OA=96.74%
+27031.6s 278 Training HybridSN... OA=99.88%
+27141.3s 279 Training SMCNN-MLP... OA=99.89%
+27274.1s 280 Training SMCNN-BiGRU... OA=99.92%
+27274.3s 281 
+27274.3s 282 --- Seed 300 ---
+27274.9s 283 Split (seed=300): 2697 train, 51432 test
+27374.8s 284 Training 2D-CNN... OA=99.95%
+28730.2s 285 Training 3D-CNN... OA=96.74%
+29288.0s 286 Training HybridSN... OA=99.98%
+29392.5s 287 Training SMCNN-MLP... OA=99.96%
+29511.9s 288 Training SMCNN-BiGRU... OA=99.90%
+29512.1s 289 
+29512.1s 290 --- Seed 2024 ---
+29512.7s 291 Split (seed=2024): 2697 train, 51432 test
+29573.3s 292 Training 2D-CNN... OA=99.91%
+30927.8s 293 Training 3D-CNN... OA=97.13%
+31564.8s 294 Training HybridSN... OA=99.93%
+31691.4s 295 Training SMCNN-MLP... OA=99.92%
+31872.1s 296 Training SMCNN-BiGRU... OA=99.93%
+31872.3s 297 
+31872.3s 298 ────────────────────────────────────────────────────────────
+31872.3s 299 FINAL RESULTS for Salinas (Mean ± Std)
+31872.3s 300 ────────────────────────────────────────────────────────────
+31872.3s 301 Method                  OA (%)         AA (%)          Kappa   Time (s)
+31872.3s 302 2D-CNN            99.93± 0.02   99.90± 0.03  0.9993±0.0002     85.5
+31872.3s 303 3D-CNN            97.20± 0.52   96.85± 0.98  0.9688±0.0058   1325.3
+31872.3s 304 HybridSN          99.94± 0.03   99.92± 0.03  0.9993±0.0004    563.4
+31872.3s 305 SMCNN-MLP         99.91± 0.03   99.87± 0.02  0.9990±0.0003    111.1
+31872.3s 306 SMCNN-BiGRU       99.91± 0.02   99.87± 0.03  0.9990±0.0002    137.1
+31872.3s 307 
+31872.3s 308 ============================================================
+31872.3s 309 SOTA Comparison on Botswana (5 Seeds)
+31872.3s 310 ============================================================
+31873.2s 311 Loaded Botswana: X=(1476, 256, 145), y=(1476, 256), Classes=14
+31874.3s 312 Applying AFDKF denoising...
+31875.6s 313 Applying PLCWT feature extraction...
+31876.4s 314 PLCWT: 30 bands -> 60 bands
+31876.4s 315 
+31876.4s 316 --- Seed 42 ---
+31876.4s 317 Split (seed=42): 156 train, 3092 test
+31881.0s 318 Training 2D-CNN... OA=99.74%
+31964.7s 319 Training 3D-CNN... OA=66.95%
+32013.2s 320 Training HybridSN... OA=99.71%
+32021.7s 321 Training SMCNN-MLP... OA=99.84%
+32033.6s 322 Training SMCNN-BiGRU... OA=99.68%
+32033.8s 323 
+32033.8s 324 --- Seed 100 ---
+32033.8s 325 Split (seed=100): 156 train, 3092 test
+32038.4s 326 Training 2D-CNN... OA=96.31%
+32075.2s 327 Training 3D-CNN... OA=46.93%
+32108.4s 328 Training HybridSN... OA=96.93%
+32117.1s 329 Training SMCNN-MLP... OA=95.80%
+32127.6s 330 Training SMCNN-BiGRU... OA=97.77%
+32127.8s 331 
+32127.8s 332 --- Seed 200 ---
+32127.8s 333 Split (seed=200): 156 train, 3092 test
+32132.8s 334 Training 2D-CNN... OA=98.67%
+32216.1s 335 Training 3D-CNN... OA=66.82%
+32253.2s 336 Training HybridSN... OA=98.38%
+32261.2s 337 Training SMCNN-MLP... OA=99.58%
+32267.8s 338 Training SMCNN-BiGRU... OA=99.22%
+32268.0s 339 
+32268.0s 340 --- Seed 300 ---
+32268.0s 341 Split (seed=300): 156 train, 3092 test
+32272.8s 342 Training 2D-CNN... OA=98.74%
+32326.8s 343 Training 3D-CNN... OA=42.98%
+32365.2s 344 Training HybridSN... OA=99.29%
+32371.8s 345 Training SMCNN-MLP... OA=99.09%
+32381.9s 346 Training SMCNN-BiGRU... OA=98.67%
+32381.9s 347 
+32381.9s 348 --- Seed 2024 ---
+32382.2s 349 Split (seed=2024): 156 train, 3092 test
+32386.4s 350 Training 2D-CNN... OA=97.83%
+32469.9s 351 Training 3D-CNN... OA=61.42%
+32500.6s 352 Training HybridSN... OA=97.77%
+32507.4s 353 Training SMCNN-MLP... OA=98.19%
+32513.7s 354 Training SMCNN-BiGRU... OA=97.93%
+32513.7s 355 
+32513.7s 356 ────────────────────────────────────────────────────────────
+32513.7s 357 FINAL RESULTS for Botswana (Mean ± Std)
+32513.7s 358 ────────────────────────────────────────────────────────────
+32513.7s 359 Method                  OA (%)         AA (%)          Kappa   Time (s)
+32513.7s 360 2D-CNN            98.26± 1.15   98.03± 1.48  0.9811±0.0124      4.4
+32513.7s 361 3D-CNN            57.02±10.13   49.31± 9.77  0.5298±0.1119     67.5
+32513.7s 362 HybridSN          98.42± 1.01   98.21± 1.35  0.9828±0.0109     36.7
+32513.7s 363 SMCNN-MLP         98.50± 1.46   98.20± 1.81  0.9837±0.0159      7.6
+32513.7s 364 SMCNN-BiGRU       98.65± 0.73   98.43± 1.00  0.9854±0.0079      8.8
+32513.9s 365 
+32513.9s 366 ============================================================
+32513.9s 367 SOTA Comparison on KSC (5 Seeds)
+32513.9s 368 ============================================================
+32514.7s 369 Loaded KSC: X=(512, 614, 176), y=(512, 614), Classes=13
+32515.8s 370 Applying AFDKF denoising...
+32516.7s 371 Applying PLCWT feature extraction...
+32517.4s 372 PLCWT: 30 bands -> 60 bands
+32517.4s 373 
+32517.4s 374 --- Seed 42 ---
+32517.4s 375 Split (seed=42): 256 train, 4955 test
+32535.5s 376 Training 2D-CNN... OA=90.15%
+32586.1s 377 Training 3D-CNN... OA=37.42%
+32739.7s 378 Training HybridSN... OA=93.66%
+32762.2s 379 Training SMCNN-MLP... OA=88.34%
+32791.3s 380 Training SMCNN-BiGRU... OA=91.66%
+32791.3s 381 
+32791.3s 382 --- Seed 100 ---
+32791.6s 383 Split (seed=100): 256 train, 4955 test
+32805.1s 384 Training 2D-CNN... OA=82.58%
+32858.0s 385 Training 3D-CNN... OA=22.52%
+32999.7s 386 Training HybridSN... OA=88.50%
+33024.1s 387 Training SMCNN-MLP... OA=88.36%
+33049.7s 388 Training SMCNN-BiGRU... OA=87.51%
+33049.7s 389 
+33049.7s 390 --- Seed 200 ---
+33050.0s 391 Split (seed=200): 256 train, 4955 test
+33067.6s 392 Training 2D-CNN... OA=89.10%
+33122.0s 393 Training 3D-CNN... OA=37.24%
+33277.8s 394 Training HybridSN... OA=94.37%
+33301.5s 395 Training SMCNN-MLP... OA=89.83%
+33330.2s 396 Training SMCNN-BiGRU... OA=87.93%
+33330.2s 397 
+33330.2s 398 --- Seed 300 ---
+33330.5s 399 Split (seed=300): 256 train, 4955 test
+33348.1s 400 Training 2D-CNN... OA=90.29%
+33393.5s 401 Training 3D-CNN... OA=36.63%
+33534.6s 402 Training HybridSN... OA=92.35%
+33556.9s 403 Training SMCNN-MLP... OA=91.32%
+33579.5s 404 Training SMCNN-BiGRU... OA=89.18%
+33579.5s 405 
+33579.5s 406 --- Seed 2024 ---
+33579.7s 407 Split (seed=2024): 256 train, 4955 test
+33590.3s 408 Training 2D-CNN... OA=86.22%
+33620.4s 409 Training 3D-CNN... OA=28.23%
+33757.0s 410 Training HybridSN... OA=91.71%
+33781.3s 411 Training SMCNN-MLP... OA=88.76%
+33807.8s 412 Training SMCNN-BiGRU... OA=87.65%
+33807.8s 413 
+33807.8s 414 ────────────────────────────────────────────────────────────
+33807.8s 415 FINAL RESULTS for KSC (Mean ± Std)
+33807.8s 416 ────────────────────────────────────────────────────────────
+33807.8s 417 Method                  OA (%)         AA (%)          Kappa   Time (s)
+33807.8s 418 2D-CNN            87.67± 2.94   79.26± 6.80  0.8620±0.0333     15.2
+33807.8s 419 3D-CNN            32.41± 6.02   17.12± 3.09  0.1999±0.0762     45.5
+33807.8s 420 HybridSN          92.12± 2.04   87.85± 4.89  0.9120±0.0229    144.4
+33807.8s 421 SMCNN-MLP         89.32± 1.14   83.79± 2.68  0.8809±0.0128     23.2
+33807.8s 422 SMCNN-BiGRU       88.79± 1.56   83.91± 2.95  0.8750±0.0174     26.2
+33808.0s 423 
+33808.0s 424 ============================================================
+33808.0s 425 SOTA Comparison on WHU_Hi (5 Seeds)
+33808.0s 426 ============================================================
+33810.8s 427 Loaded WHU_Hi: X=(1217, 303, 274), y=(1217, 303), Classes=16
+33813.1s 428 Applying AFDKF denoising...
+33814.3s 429 Applying PLCWT feature extraction...
+33815.0s 430 PLCWT: 30 bands -> 60 bands
+33815.0s 431 
+33815.0s 432 --- Seed 42 ---
+33818.0s 433 Split (seed=42): 12868 train, 244662 test
+34645.3s 434 Training 2D-CNN... OA=99.60%
+41214.8s 435 Training 3D-CNN... OA=85.65%
+43212.2s 436 Training HybridSN...

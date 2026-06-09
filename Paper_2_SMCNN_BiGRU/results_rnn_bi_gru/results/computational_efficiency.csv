@@ -1,0 +1,7 @@
+Dataset,Params (M),FLOPs (M),Inference (ms),GPU Mem (MB),Train Time (s)
+IndianPines,0.32,30.73,1.73,183.0,31.7
+PaviaU,0.32,30.73,1.83,183.0,107.4
+Salinas,0.32,30.73,1.79,183.0,148.3
+Botswana,0.32,30.73,1.79,183.0,10.6
+KSC,0.32,30.73,1.79,183.0,28.4
+WHU_Hi,0.32,30.73,2.05,183.0,1185.7
