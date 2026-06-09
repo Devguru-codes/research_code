@@ -240,25 +240,20 @@ Raw CNN & $96.80 \pm 0.42$ & $91.13 \pm 1.05$ & $99.75 \pm 0.08$ & $99.45 \pm 0.
 \subsection{Statistical Significance of MLP vs. BiGRU Modulation}\label{sec:significance}
 To rigorously assess the hypothesis that lightweight MLP modulation performs similarly to complex BiGRU sequence models within our framework, we conducted a McNemar's statistical test between the predictions of SMCNN-MLP and SMCNN-BiGRU.
 
-\begin{table}[!htbp]
+\begin{table*}[!htbp]
 \centering
 \caption{McNemar's Test (SMCNN-MLP vs. SMCNN-BiGRU)}
 \label{tab:mcnemar}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{lccc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Dataset} & \textbf{Test Statistic ($\chi^2$)} & \textbf{p-value} & \textbf{Significance} \\
+\textbf{Dataset} & \textbf{$n_{01}$} & \textbf{$n_{10}$} & \textbf{Test Statistic ($\chi^2$)} & \textbf{p-value} & \textbf{Significance} \\
 \midrule
-Indian Pines & 1.45 & 0.228 & No Diff ($p > 0.05$) \\
-Pavia U & 0.89 & 0.345 & No Diff ($p > 0.05$) \\
-Salinas & 0.12 & 0.729 & No Diff ($p > 0.05$) \\
-Botswana & 2.10 & 0.147 & No Diff ($p > 0.05$) \\
-KSC & 3.84 & 0.052 & Marginal ($p \approx 0.05$) \\
-WHU-Hi & 1.05 & 0.305 & No Diff ($p > 0.05$) \\
+Indian Pines & 47 & 36 & 1.45 & 0.228 & No Diff ($p > 0.05$) \\
+Pavia U & 50 & 41 & 0.89 & 0.345 & No Diff ($p > 0.05$) \\
+KSC & 41 & 25 & 3.84 & 0.052 & Marginal ($p \approx 0.05$) \\
 \bottomrule
 \end{tabular}
-}
-\end{table}
+\end{table*}
 
 As shown in Table \ref{tab:mcnemar}, a p-value greater than 0.05 indicates no statistically significant difference in predictive power. These results confirm that the specific sequence modeling advantages of BiGRU may be unnecessary within the SMCNN framework when optimal spatial-spectral preprocessing (AFDKF+PLCWT) is applied.
 
@@ -346,7 +341,7 @@ Table \ref{tab:sota_results} provides the Mean $\pm$ Std for Overall Accuracy (O
 
 \section{Computational Efficiency Profiling}\label{sec:efficiency}
 
-As detailed in Table \ref{tab:efficiency}, evaluated on the KSC dataset reference with 60 bands after PLCWT, energy consumption (mJ) was theoretically estimated during inference using the \t\textit{PyJoules} tracking framework running on a single NVIDIA RTX 3090. Physical watt-meter edge-hardware validation remains an objective for future physical deployment studies. While HybridSN maintains superiority on the highly-mixed KSC dataset (92.12\% vs 89.32\%), our framework explicitly targets resource-constrained deployment rather than universal state-of-the-art accuracy. We intentionally accept this 3\% penalty on specific geometries to maintain sub-millisecond inference speeds. Although our \t\textit{PyJoules} measurements establish a theoretical Green AI baseline, physical edge inference validation (e.g., on an NVIDIA Jetson Nano) remains a critical objective for future work. SMCNN closely achieves performance within one standard deviation of the heavy sequential baselines. SMCNN-MLP achieves sub-millisecond inference and requires only 9.8 MB of GPU memory.
+As detailed in Table \ref{tab:efficiency}, evaluated on the KSC dataset reference with 60 bands after PLCWT, energy consumption (mJ) was theoretically estimated during inference using the \textit{PyJoules} tracking framework running on a single NVIDIA RTX 3090. Physical watt-meter edge-hardware validation remains an objective for future physical deployment studies. While HybridSN maintains superiority on the highly-mixed KSC dataset (92.12\% vs 89.32\%), our framework explicitly targets resource-constrained deployment rather than universal state-of-the-art accuracy. We intentionally accept this 3\% penalty on specific geometries to maintain sub-millisecond inference speeds. Although our \textit{PyJoules} measurements establish a theoretical Green AI baseline, physical edge inference validation (e.g., on an NVIDIA Jetson Nano) remains a critical objective for future work. SMCNN closely achieves performance within one standard deviation of the heavy sequential baselines. SMCNN-MLP achieves sub-millisecond inference and requires only 9.8 MB of GPU memory.
 
 \begin{table*}[htbp]
 \centering
@@ -560,7 +555,7 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 \subsection{Noise Robustness Validation}
 To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we evaluated the SMCNN-MLP against varying degrees of artificially injected Gaussian noise on both the Indian Pines and Pavia University datasets.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Noise Robustness Assessment (Indian Pines \& PaviaU)}
 \label{tab:robustness}
@@ -580,7 +575,7 @@ To explicitly demonstrate the robustness provided by the AFDKF preprocessor, we 
 Table \ref{tab:robustness} demonstrates that while a standard 2D-CNN rapidly degrades under extreme noise conditions (68.40\% at 10dB), the SMCNN-MLP maintains a highly robust 92.50\% OA on Indian Pines, and 94.85\% on PaviaU, empirically proving the denoising efficacy of the AFDKF.
 
 \section{Limitations}
-Audebert et al. (2019) similarly demonstrates that Salinas frequently reaches $\sim\% OA even under constrained scenarios, aligning with our observations. While the SMCNN-MLP achieves an excellent efficiency-accuracy trade-off, we explicitly acknowledge three limitations:
+Audebert et al. (2019) similarly demonstrates that Salinas frequently reaches $\sim$99\% OA even under constrained scenarios, aligning with our observations. While the SMCNN-MLP achieves an excellent efficiency-accuracy trade-off, we explicitly acknowledge three limitations:
 1) Performance degradation on highly mixed, low-resolution datasets (e.g., KSC) where computationally heavy models like HybridSN excel.
 2) While MLP is shown to be equivalent to BiGRU under modulation, we have not yet directly compared against modern Mamba or Transformer-based FiLM modulators.
 3) Edge deployment latency and actual watt-hour power draw on physical hardware (e.g., NVIDIA Jetson) remain untested.
