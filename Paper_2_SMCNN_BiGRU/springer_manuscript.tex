@@ -71,7 +71,7 @@ Hyperspectral images contain rich spectral-spatial information, making them inva
 
 Recent advancements have attempted to solve this by introducing complex attention mechanisms or recurrent models. For instance, Li et al. \cite{yan2021} introduced dual-attention mechanisms to recalibrate feature responses, while Kang et al. \cite{kang2014} explored spatial-spectral edge-preserving filters. Most recently, sequence models like Mamba have emerged \cite{zhang2024, hypermamba2024}. Wang et al. \cite{zhang2024} proposed Spectral-Spatial Mamba, fusing State Space Models (SSMs) with CNNs to capture long-range spectral dependencies. While these approaches push state-of-the-art accuracy, they contribute to an unsustainable trend of increasingly heavy models that are impossible to deploy on edge hardware (e.g., drones). To address this, the 2024-2025 literature has seen a parallel push towards ultra-lightweight architectures \cite{scnet2025}. The Mamba-based architectures rely on Selective State Space Models to capture long-range spectral dependencies, which, while highly effective for sequential data, introduce significant non-linearity that complicates hardware parallelization and increases memory overhead. We posit that the reliance on such heavy sequence-modeling backbones can be mitigated if the input manifold is pre-conditioned to remove noise and improve frequency separability.
 
-In a parallel domain, advanced signal processing techniques have shown promise in denoising. Lou et al. \cite{lou2024} introduced an Adaptive Fast Desensitized Kalman Filter (AFDKF) for robust state estimation, and Xu \& Li \cite{xu2023} explored wavelet-based architectures for enhanced directional signal representation. Recently, wavelet-guided deep learning has been shown to achieve state-of-the-art denoising performance on real-world hyperspectral sets \cite{waveletdenoise2024}. 
+In a parallel domain, advanced signal processing techniques have shown promise in denoising. Lou et al. \cite{lou2024} introduced an Adaptive Fast Desensitized Kalman Filter (AFDKF) for robust state estimation, Recent works such as Li et al. \cite{waveletdenoise2024} have explored wavelet-guided deep learning architectures for enhanced directional signal representation and state-of-the-art denoising on real-world hyperspectral sets. 
 
 \subsection{Our Contributions}
 We bridge the gap between heavy deep learning and advanced signal processing. In addressing the architectural hierarchy of our framework, we clearly state: \textbf{the core novelty lies in adaptive spectral-spatial feature modulation through SSMRB, while AFDKF, PLCWT, and SFWOA serve as supporting components.}
@@ -585,14 +585,14 @@ Future work will focus on deploying the SMCNN-MLP onto physical hardware, such a
 
 
 \begin{thebibliography}{99}
-\bibitem{hypermamba2024} Chen, Z., et al. (2024). HyperMamba: A novel State Space Model for hyperspectral image classification. IEEE Transactions on Geoscience and Remote Sensing.
+\bibitem{hypermamba2024} Liu, Q., Yue, J., Fang, Y., Xia, S., \& Fang, L. (2024). HyperMamba: A Spectral-Spatial Adaptive Mamba for Hyperspectral Image Classification. IEEE Transactions on Geoscience and Remote Sensing. \url{https://doi.org/10.1109/TGRS.2024.3482473}
 \bibitem{scnet2025} Zhang, X., et al. (2025). SCNet: Spatial and Channel Reconstruction Convolutions for Lightweight Hyperspectral Image Classification. IEEE Geoscience and Remote Sensing Letters.
 \bibitem{waveletdenoise2024} Li, Y., et al. (2024). Wavelet-guided deep learning for hyperspectral image denoising. ISPRS Journal of Photogrammetry and Remote Sensing.
 
-\bibitem{yan2021} Li, R., Zheng, S., Duan, C., Yang, Y., \& Wang, X. (2020). Classification of hyperspectral image based on double-branch dual-attention mechanism network. Remote Sensing, 12(4), 582.
+\bibitem{yan2021} Li, R., Zheng, S., Duan, C., Yang, Y., \& Wang, X. (2020). Classification of hyperspectral image based on double-branch dual-attention mechanism network. Remote Sensing, 12(3), 582. \url{https://doi.org/10.3390/rs12030582}
 \bibitem{kang2014} Kang, X., Li, S., \& Benediktsson, J. A. (2014). Spectral-spatial hyperspectral image classification with edge-preserving filtering. IEEE Transactions on Geoscience and Remote Sensing, 52(5), 2666-2677.
-\bibitem{zhang2024} Wang, J., et al. (2024). Spectral-Spatial Mamba for Hyperspectral Image Classification. IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-15, Art no. 5500115.
-\bibitem{lou2024} Lou, G., et al. (2024). Adaptive Fast Desensitized Kalman Filter for State Estimation. IEEE Transactions on Automatic Control, 69(2), 1145-1152.
+\bibitem{zhang2024} Huang, L., Chen, Y., \& He, X. (2024). Spectral-Spatial Mamba for Hyperspectral Image Classification. Remote Sensing, 16(13), 2449. \url{https://doi.org/10.3390/rs16132449}
+\bibitem{lou2024} Lou, T.S., et al. (2024). Adaptive Fast Desensitized Kalman Filter for State Estimation. Circuits, Systems, and Signal Processing. \url{https://doi.org/10.1007/s00034-024-02801-3}
 \bibitem{plcwt2023} Qian, Y., Ye, M., \& Zhou, J. (2013). Hyperspectral band selection exploiting linear prediction and wavelet filtering. IEEE Transactions on Geoscience and Remote Sensing, 51(7), 3680-3694.
 \bibitem{melgani2004} Melgani, F., \& Bruzzone, L. (2004). Classification of hyperspectral remote sensing images with support vector machines. IEEE Transactions on Geoscience and Remote Sensing, 42(8), 1778-1790.
 \bibitem{camps2005} Camps-Valls, G., \& Bruzzone, L. (2005). Kernel-based methods for hyperspectral image classification. IEEE Transactions on Geoscience and Remote Sensing, 43(6), 1351-1362.
@@ -615,11 +615,10 @@ Future work will focus on deploying the SMCNN-MLP onto physical hardware, such a
 \bibitem{liu2023} Liu, Y., \& Zheng, Y. (2023). Transformer-based spatial-spectral network for HSI classification. ISPRS Journal of Photogrammetry and Remote Sensing, 184, 1-15.
 \bibitem{zhang2022} Zhang, X., \& Xu, J. (2020). 3D-CNN with channel attention for robust hyperspectral classification. Remote Sensing, 14(5), 1155.
 \bibitem{chen2023} Ghamisi, P., et al. (2017). Advanced spectral-spatial classification of hyperspectral images. IEEE Geoscience and Remote Sensing Magazine, 5(1), 8-32.
-\bibitem{xu2023} Xu, M., \& Li, J. (2023). Wavelet-based deep learning architectures for hyperspectral imagery. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 16, 1250-1263.
 \bibitem{gao2023} Gu, A., \& Dao, T. (2023). Mamba: Linear-time sequence modeling with selective state spaces. arXiv preprint arXiv:2312.00752.
 \bibitem{huang2023} Huang, R., \& Zhao, Y. (2023). Fractional-order calculus in image denoising: Theory and applications. Signal Processing, 195, 108480.
 \bibitem{schwartz2020} Schwartz, R., Dodge, J., Smith, N. A., \& Etzioni, O. (2020). Green AI. Communications of the ACM, 63(12), 54-63.
 
-\bibitem{devguru2026repo} Tiwari, D., \& Hira, S. (2026). Source code for: Lightweight FiLM Modulation with Robust Preprocessing Challenges the Necessity of Complex Hyperspectral Architectures. GitHub Repository. \url{https://github.com/Devguru-codes/research_code}.
+\bibitem{devguru2026repo} Tiwari, D., \& Hira, S. (2026). Source code for: Lightweight FiLM Modulation with Robust Preprocessing Challenges the Necessity of Complex Hyperspectral Architectures. GitHub Repository. Available online: \url{https://github.com/Devguru-codes/research_code}
 \end{thebibliography}
 \end{document}
