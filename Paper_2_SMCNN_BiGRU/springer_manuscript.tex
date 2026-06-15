@@ -89,25 +89,7 @@ We bridge the gap between heavy deep learning and advanced signal processing. Ou
 
 \begin{figure}[!htbp]
 \centering
-\begin{tikzpicture}[
-    box/.style={draw, rectangle, minimum width=2.5cm, minimum height=1cm, text centered, font=\small},
-    arrow/.style={thick,->,>=stealth}
-]
-    \node (input) [box, fill=gray!20] {Raw HSI Cube ($H \times W \times C$)};
-    \node (afdkf) [box, fill=blue!10, below=0.6cm of input] {AFDKF Denoising (Robust $S_k$)};
-    \node (pca) [box, fill=green!10, below=0.6cm of afdkf] {PCA Reduction ($C \rightarrow 30$)};
-    \node (plcwt) [box, fill=red!10, below=0.6cm of pca] {PLCWT Expansion ($30 \rightarrow 60$)};
-    \node (film) [box, fill=orange!10, below=0.6cm of plcwt] {MLP-FiLM Modulation ($\gamma, \beta$)};
-    \node (cnn) [box, fill=purple!10, below=0.6cm of film] {Lightweight 2D-CNN Extract};
-    \node (output) [box, fill=gray!20, below=0.6cm of cnn] {Softmax Predictions};
-
-    \draw [arrow] (input) -- (afdkf);
-    \draw [arrow] (afdkf) -- (pca);
-    \draw [arrow] (pca) -- (plcwt);
-    \draw [arrow] (plcwt) -- (film);
-    \draw [arrow] (film) -- (cnn);
-    \draw [arrow] (cnn) -- (output);
-\end{tikzpicture}
+\includegraphics[width=\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/smcnn_architecture_ai.png}
 \caption{End-to-End Architecture Flowchart of the SMCNN-MLP Framework.}
 \label{fig:architecture}
 \end{figure}
