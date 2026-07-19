@@ -24,6 +24,10 @@
 \usepackage{url}
 \usepackage{titlesec}
 \usepackage{caption}
+\makeatletter
+\def\SetFootnoteHook#1{}
+\def\DeclareNewFootnote#1[#2]{}
+\makeatother
 
 % Table caption formatting: Roman numerals, centered
 \renewcommand{\thetable}{\Roman{table}}
@@ -480,8 +484,8 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.40\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png}
-\includegraphics[width=0.40\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png}
+\includegraphics[width=0.48\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill
+\includegraphics[width=0.48\textwidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png}
 \caption{Confusion Matrices for Indian Pines (left) and Pavia University (right). The strong diagonal dominance visually illustrates the $>99\%$ accuracies reported in Section~\ref{sec:sota_results}.}
 \label{fig:conf_matrix}
 
@@ -537,7 +541,10 @@ To demonstrate the robustness of the SMCNN-MLP across both dominant and minority
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.32\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill \includegraphics[width=0.32\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png} \hfill \includegraphics[width=0.32\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_KSC.png}
+\includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_IndianPines.png} \hfill
+\includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_PaviaU.png} \\
+\vspace{0.4cm}
+\includegraphics[width=0.48\linewidth]{C:/Users/devgu/Downloads/swati_hira_research_paper_work/final_kaggle_cells/results_ver_6/confusion_matrix_KSC.png}
 \caption{Confusion Matrices for (a) Indian Pines, (b) PaviaU, and (c) KSC datasets. Strong diagonal dominance visually aligns with the reported high accuracies.}
 \label{fig:conf_all}
 \end{figure*}
@@ -582,7 +589,17 @@ Our proposed framework, SMCNN, effectively utilizes Feature-wise Linear Modulati
 
 Future work will focus on deploying the SMCNN-MLP onto physical hardware, such as NVIDIA Jetson edge devices, to evaluate real-time inference latency and battery consumption under live agricultural and environmental monitoring conditions.
 
+\section*{Declarations}
 
+\begin{itemize}
+\item \textbf{Ethical Approval:} Not applicable.
+\item \textbf{Consent to Participate:} Yes.
+\item \textbf{Consent to Publish:} Yes.
+\item \textbf{Data Availability Statement:} The public datasets analyzed during the current study are available in standard hyperspectral remote sensing repositories. The source code generated during the current study is available in the GitHub repository cited in this manuscript.
+\item \textbf{Authors Contributions:} Dr. Swati Hira contributed to the accumulation of the datasets and provided supervision and an overview of the work. Mr. Devguru Tiwari conducted the experiments, ran the codes, and wrote the manuscript. All authors read and approved the final manuscript.
+\item \textbf{Funding:} Not applicable.
+\item \textbf{Competing Interests:} Not applicable.
+\end{itemize}
 
 \begin{thebibliography}{99}
 \bibitem{hypermamba2024} Liu, Q., Yue, J., Fang, Y., Xia, S., \& Fang, L. (2024). HyperMamba: A Spectral-Spatial Adaptive Mamba for Hyperspectral Image Classification. IEEE Transactions on Geoscience and Remote Sensing. \url{https://doi.org/10.1109/TGRS.2024.3482473}
